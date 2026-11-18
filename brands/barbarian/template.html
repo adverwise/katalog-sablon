@@ -258,7 +258,7 @@ const LOGO = window.__CTX.logo;
 
 /* ---------- shared pieces ---------- */
 const box = (g,extra="")=>`left:${g.x}px;top:${g.y}px;width:${g.w}px;height:${g.h}px;${extra}`;
-const ph = (src,g,extra="")=>`<div class="ph" style="${box(g,extra)}"><img src="${src}" alt=""></div>`;
+const ph = (src,g,extra="")=>`<div class="ph" style="${box(g,extra)}"><img crossorigin="anonymous" src="${src}" alt=""></div>`;
 const fl = (t,cls="")=>`<div class="fl ${cls}${/[İÖÜĞŞÇ]/.test(t)?" hi":""}" data-fit><span>${t}</span></div>`;
 const grain = (id,op=.5)=>`<svg class="grain" style="opacity:${op}" viewBox="0 0 1080 1080" preserveAspectRatio="none"><filter id="gr${id}"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="4"/><feColorMatrix values="0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .5  0 0 0 -1.4 1.05"/></filter><rect width="1080" height="1080" filter="url(#gr${id})"/></svg>`;
 const zebra = ()=>`<svg class="tex" viewBox="0 0 1080 1080" preserveAspectRatio="none"><filter id="zb" x="0" y="0" width="100%" height="100%"><feTurbulence type="turbulence" baseFrequency="0.0032 0.021" numOctaves="2" seed="23" result="t"/><feColorMatrix in="t" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.6 0 0 0 0"/><feComponentTransfer><feFuncA type="discrete" tableValues="0 0 1 1 1 0 0 0"/></feComponentTransfer></filter><rect width="1080" height="1080" fill="#efe7d8"/><g transform="rotate(-24 540 540) translate(-300 -300) scale(1.6)"><rect width="1080" height="1080" fill="#141210" filter="url(#zb)"/></g></svg>`;
@@ -403,6 +403,23 @@ const T = {
  }
 };
 
+/* Ürünü kesmemek için: düz (stüdyo) zeminli fotoğraf hücreye sığdırılır (contain) ve boşluk fotoğrafın kendi kenar rengiyle doldurulur.
+   Zemini dokulu/lifestyle fotoğraflar hücreyi doldurmaya (cover) devam eder. */
+function fitPhotos(root){
+  root.querySelectorAll('.ph img').forEach(img=>{
+    try{
+      const w=48, h=Math.max(8,Math.round(48*img.naturalHeight/img.naturalWidth));
+      const c=document.createElement('canvas'); c.width=w; c.height=h;
+      const x=c.getContext('2d'); x.drawImage(img,0,0,w,h);
+      const d=x.getImageData(0,0,w,h).data, px=[];
+      for(let i=0;i<w;i++){ px.push(i, i+(h-1)*w); }
+      for(let j=0;j<h;j++){ px.push(j*w, j*w+w-1); }
+      let r=0,g=0,b=0; px.forEach(k=>{r+=d[k*4];g+=d[k*4+1];b+=d[k*4+2];}); const n=px.length; r/=n; g/=n; b/=n;
+      let v=0; px.forEach(k=>{v+=Math.abs(d[k*4]-r)+Math.abs(d[k*4+1]-g)+Math.abs(d[k*4+2]-b);}); v/=n;
+      if(v<18){ img.style.objectFit='contain'; img.style.objectPosition='50% 50%'; img.parentElement.style.background=`rgb(${r|0},${g|0},${b|0})`; }
+    }catch(e){ /* okunamazsa cover kalır */ }
+  });
+}
 function fit(root){
   root.querySelectorAll(".fl[data-fit]").forEach(el=>{
     const sp=el.firstElementChild; const target=el.clientWidth; if(!target) return;
@@ -427,6 +444,7 @@ function fit(root){
   document.body.innerHTML = T[key](p);
   await document.fonts.ready;
   await Promise.all([...document.images].map(i => i.complete ? 0 : new Promise(r => { i.onload = i.onerror = r; })));
+  fitPhotos(document.body);
   fit(document.body);
   window.__BROKEN = [...document.images].filter(i => !i.naturalWidth).map(i => i.src.slice(0, 120));
   window.__READY = true;
