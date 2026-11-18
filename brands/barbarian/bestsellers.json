@@ -1,0 +1,269 @@
+{
+ "_not": "Bestseller feed'i (B1, B2). Kaynak: Shopify satış raporu 1–18 Kasım 2026, ürün+renk bazında ilk 30 + takım tamamlayanlar; YOKO Tiffany Blue çıkarıldı. Stok durumuna bakılmadan seçildi; stokta olmayan varyant feed'e girmez, stoğa gelince otomatik girer.",
+ "products": [
+  {
+   "product_id": "9318881165468",
+   "handle": "gilda-zipper-1",
+   "title": "GILDA FUR ZIPPER",
+   "color": "Black",
+   "sales_rank": 1,
+   "set_complement": false
+  },
+  {
+   "product_id": "9356378964124",
+   "handle": "diva-zip-hoodie",
+   "title": "DIVA ZIP HOODIE",
+   "color": "Black",
+   "sales_rank": 2,
+   "set_complement": false
+  },
+  {
+   "product_id": "9038272921756",
+   "handle": "maddy-pant",
+   "title": "MADDY PANT",
+   "color": "Black Leopard",
+   "sales_rank": 3,
+   "set_complement": false
+  },
+  {
+   "product_id": "9317149802652",
+   "handle": "jade-trackpant",
+   "title": "JADE TRACKPANT",
+   "color": "Zebra Print",
+   "sales_rank": 4,
+   "set_complement": false
+  },
+  {
+   "product_id": "9315358212252",
+   "handle": "jade-hoodie",
+   "title": "JADE HOODIE",
+   "color": "Zebra Print",
+   "sales_rank": 5,
+   "set_complement": false
+  },
+  {
+   "product_id": "9323089526940",
+   "handle": "gilda-zipper-2",
+   "title": "GILDA FUR ZIPPER",
+   "color": "White Fur",
+   "sales_rank": 6,
+   "set_complement": false
+  },
+  {
+   "product_id": "9356388761756",
+   "handle": "diva-trackpant",
+   "title": "DIVA TRACKPANT",
+   "color": "Black",
+   "sales_rank": 7,
+   "set_complement": false
+  },
+  {
+   "product_id": "9221654544540",
+   "handle": "yoko-hoodie",
+   "title": "YOKO HOODIE",
+   "color": "Emerald Green",
+   "sales_rank": 8,
+   "set_complement": false
+  },
+  {
+   "product_id": "9221654511772",
+   "handle": "gemma-hoodie",
+   "title": "YOKO HOODIE",
+   "color": "Black/Pink",
+   "sales_rank": 9,
+   "set_complement": false
+  },
+  {
+   "product_id": "9221655330972",
+   "handle": "yoko-trackpant",
+   "title": "YOKO TRACKPANT",
+   "color": "Emerald Green",
+   "sales_rank": 10,
+   "set_complement": false
+  },
+  {
+   "product_id": "9356402819228",
+   "handle": "diva-zip-hoodie-1",
+   "title": "DIVA ZIP HOODIE",
+   "color": "Pink",
+   "sales_rank": 11,
+   "set_complement": false
+  },
+  {
+   "product_id": "9356780667036",
+   "handle": "maddy-pant-5",
+   "title": "MADDY PANT",
+   "color": "Brown Leopard",
+   "sales_rank": 12,
+   "set_complement": false
+  },
+  {
+   "product_id": "9221655265436",
+   "handle": "gemma-trackpant",
+   "title": "YOKO TRACKPANT",
+   "color": "Black/Pink",
+   "sales_rank": 13,
+   "set_complement": false
+  },
+  {
+   "product_id": "9323229839516",
+   "handle": "gilda-zipper-3",
+   "title": "GILDA FUR ZIPPER",
+   "color": "Light Pink Fur",
+   "sales_rank": 14,
+   "set_complement": false
+  },
+  {
+   "product_id": "9317310431388",
+   "handle": "jade-hoodie-4",
+   "title": "JADE HOODIE",
+   "color": "Lux Black",
+   "sales_rank": 15,
+   "set_complement": false
+  },
+  {
+   "product_id": "9356437160092",
+   "handle": "diva-zip-hoodie-2",
+   "title": "DIVA ZIP HOODIE",
+   "color": "White",
+   "sales_rank": 16,
+   "set_complement": false
+  },
+  {
+   "product_id": "9278388175004",
+   "handle": "ragna-top",
+   "title": "RAGNA TOP",
+   "color": "Black&Leopard",
+   "sales_rank": 17,
+   "set_complement": false
+  },
+  {
+   "product_id": "9317547147420",
+   "handle": "jade-trackpant-4",
+   "title": "JADE TRACKPANT",
+   "color": "Lux Black",
+   "sales_rank": 18,
+   "set_complement": false
+  },
+  {
+   "product_id": "9038273937564",
+   "handle": "maddy-top",
+   "title": "MADDY TOP",
+   "color": "Black Leopard",
+   "sales_rank": 19,
+   "set_complement": false
+  },
+  {
+   "product_id": "9090434826396",
+   "handle": "trinity-trackpant-pre-order",
+   "title": "DOJA TRACKPANT",
+   "color": "Black",
+   "sales_rank": 20,
+   "set_complement": false
+  },
+  {
+   "product_id": "9279078334620",
+   "handle": "ragna-pant-1",
+   "title": "RAGNA PANT",
+   "color": "Black & White Puantiye ",
+   "sales_rank": 21,
+   "set_complement": false
+  },
+  {
+   "product_id": "9037941637276",
+   "handle": "mae-trackpant",
+   "title": "DOJA TRACKPANT",
+   "color": "Charcoal",
+   "sales_rank": 22,
+   "set_complement": false
+  },
+  {
+   "product_id": "9037905035420",
+   "handle": "doja-trackpant",
+   "title": "DOJA TRACKPANT",
+   "color": "Pink",
+   "sales_rank": 23,
+   "set_complement": false
+  },
+  {
+   "product_id": "9090431877276",
+   "handle": "doja-crop-hoodie-pre-order",
+   "title": "DOJA CROP HOODIE",
+   "color": "Pink",
+   "sales_rank": 24,
+   "set_complement": false
+  },
+  {
+   "product_id": "9356417237148",
+   "handle": "diva-trackpant-1",
+   "title": "DIVA TRACKPANT",
+   "color": "Pink",
+   "sales_rank": 25,
+   "set_complement": false
+  },
+  {
+   "product_id": "9090433319068",
+   "handle": "mae-hoodie",
+   "title": "DOJA CROP HOODIE",
+   "color": "Charcoal",
+   "sales_rank": 26,
+   "set_complement": false
+  },
+  {
+   "product_id": "9279011324060",
+   "handle": "ragna-top-1",
+   "title": "RAGNA TOP",
+   "color": "Black&White Puantiye",
+   "sales_rank": 27,
+   "set_complement": false
+  },
+  {
+   "product_id": "9356795084956",
+   "handle": "maddy-top-5",
+   "title": "MADDY TOP",
+   "color": "Brown Leopard",
+   "sales_rank": 29,
+   "set_complement": false
+  },
+  {
+   "product_id": "9279058411676",
+   "handle": "maddy-pant-4",
+   "title": "MADDY PANT",
+   "color": "Beige & Black",
+   "sales_rank": 30,
+   "set_complement": false
+  },
+  {
+   "product_id": "9038287241372",
+   "handle": "kahlo-trackpant",
+   "title": "GILDA TRACKPANT",
+   "color": "Black",
+   "sales_rank": 104,
+   "set_complement": true
+  },
+  {
+   "product_id": "9356476285084",
+   "handle": "diva-trackpant-2",
+   "title": "DIVA TRACKPANT",
+   "color": "White",
+   "sales_rank": 53,
+   "set_complement": true
+  },
+  {
+   "product_id": "9090434597020",
+   "handle": "trinity-crop-hoodie-pre-order",
+   "title": "DOJA CROP HOODIE",
+   "color": "Black",
+   "sales_rank": 47,
+   "set_complement": true
+  },
+  {
+   "product_id": "9278361600156",
+   "handle": "maddy-top-3",
+   "title": "MADDY TOP",
+   "color": "Black & Beige",
+   "sales_rank": 60,
+   "set_complement": true
+  }
+ ]
+}
