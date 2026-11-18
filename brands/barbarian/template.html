@@ -343,7 +343,7 @@ const T = {
  },
  B2:p=>{
    const m=modeOf(p);
-   let h=T.A2(p).replace('SON GÜN 30 KASIM <span>|</span> KAÇIRMA','BESTSELLER <span>|</span> SON GÜN 30 KASIM');
+   let h=T.A2(p);
    if(m==='three') return h.replace('<div class="nm">','<div class="fav a2f bsl">BESTSELLER</div><div class="nm">');
    return h.replace(/<\/div>$/, `<div class="abs fav a2f" style="left:56px;top:110px">BESTSELLER</div></div>`);
  },
