@@ -1,0 +1,28 @@
+{
+ "brand": "Barbarian Woman",
+ "updated": "2026-11-21T18:01:13.784Z",
+ "template": "633f6615",
+ "seconds": 15,
+ "feeds": {
+  "a1-takimlar": {
+   "url": "https://adverwise.github.io/katalog-sablon/barbarian/feeds/a1-takimlar.xml",
+   "items": 324,
+   "failed": 0
+  },
+  "a2-takimlar": {
+   "url": "https://adverwise.github.io/katalog-sablon/barbarian/feeds/a2-takimlar.xml",
+   "items": 324,
+   "failed": 0
+  },
+  "b1-bestseller": {
+   "url": "https://adverwise.github.io/katalog-sablon/barbarian/feeds/b1-bestseller.xml",
+   "items": 50,
+   "failed": 0
+  },
+  "b2-bestseller": {
+   "url": "https://adverwise.github.io/katalog-sablon/barbarian/feeds/b2-bestseller.xml",
+   "items": 50,
+   "failed": 0
+  }
+ }
+}
