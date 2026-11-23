@@ -63,6 +63,7 @@ module.exports = {
   name: 'Barbarian Woman',
   site: 'https://barbarianwoman.com',
   description: 'Barbarian Woman Black Friday 2026 takım katalogları',
+  googleCategory: 'Apparel & Accessories > Clothing > Activewear', // TikTok feed'inde google_product_category
   source: { type: 'shopify', site: 'https://barbarianwoman.com' },
   maxImgs: 3,
   template: path.join(__dirname, 'template.html'),
