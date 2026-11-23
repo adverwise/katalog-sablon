@@ -75,14 +75,23 @@ ${items.join('\n')}
 `;
 }
 
-// TikTok Catalog Manager için aynı ürünler, TikTok'un kendi alan adlarıyla (sku_id …) CSV olarak
+// TikTok Catalog Manager: ürün başına TEK satır (TikTok bedenleri ayrı ürün gibi yan yana gösteriyor).
+// Satır, ürünün stoktaki ilk bedeni (Shopify sırası) üzerinden yazılır; o beden biterse sıradaki stoktaki bedene geçer,
+// ürün ancak tüm bedenleri bitince feed'den çıkar. sku_id = o bedenin varyant ID'si (piksel content_id biçimiyle aynı).
 function feedTiktokCsv(rows) {
-  const cols = ['sku_id', 'item_group_id', 'title', 'description', 'availability', 'condition', 'price', 'sale_price', 'link', 'image_link', 'brand', 'size', 'product_type'];
+  const cols = ['sku_id', 'item_group_id', 'title', 'description', 'availability', 'condition', 'price', 'sale_price', 'link', 'image_link', 'brand', 'product_type'];
   const q = (v) => { const t = String(v ?? '').replace(/\r?\n/g, ' '); return /[",]/.test(t) ? '"' + t.replace(/"/g, '""') + '"' : t; };
-  const lines = rows.map(({ it, file }) => [
-    it.id, it.group, it.title, (it.description || it.title).slice(0, 4900), it.availability, it.condition || 'new',
-    `${it.price.toFixed(2)} TRY`, `${it.sale.toFixed(2)} TRY`, it.link, BASE + '/' + file, it.brand, it.size, it.product_type,
-  ].map(q).join(','));
+  const seen = new Set();
+  const lines = [];
+  for (const { it, file } of rows) {
+    const g = it.group || it.id;
+    if (seen.has(g)) continue;
+    seen.add(g);
+    lines.push([
+      it.id, g, it.title, (it.description || it.title).slice(0, 4900), it.availability, it.condition || 'new',
+      `${it.price.toFixed(2)} TRY`, `${it.sale.toFixed(2)} TRY`, it.link.replace(/\?variant=\d+$/, ''), BASE + '/' + file, it.brand, it.product_type,
+    ].map(q).join(','));
+  }
   return '\ufeff' + [cols.join(','), ...lines].join('\n') + '\n';
 }
 

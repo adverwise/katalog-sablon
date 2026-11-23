@@ -22,7 +22,7 @@ Bir markanın üretimi hata verirse o markanın önceki yayını aynen korunur, 
 
 ## Yayın adresleri
 
-`https://adverwise.github.io/katalog-sablon/<marka>/` önizleme · `…/<marka>/feeds/<feed>.xml` Meta feed · `…/<marka>/feeds/<feed>.tiktok.csv` TikTok feed (aynı görseller, `sku_id` alan adlarıyla) · `…/<marka>/status.json` durum
+`https://adverwise.github.io/katalog-sablon/<marka>/` önizleme · `…/<marka>/feeds/<feed>.xml` Meta feed · `…/<marka>/feeds/<feed>.tiktok.csv` TikTok feed (aynı görseller, `sku_id` alan adlarıyla, ürün başına tek satır: stoktaki ilk beden temsil eder, tüm bedenler bitmeden ürün düşmez) · `…/<marka>/status.json` durum
 
 ### Barbarian Woman · Black Friday 2026 (20–30 Kasım)
 
