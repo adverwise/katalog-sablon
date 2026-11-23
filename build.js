@@ -75,6 +75,17 @@ ${items.join('\n')}
 `;
 }
 
+// TikTok Catalog Manager için aynı ürünler, TikTok'un kendi alan adlarıyla (sku_id …) CSV olarak
+function feedTiktokCsv(rows) {
+  const cols = ['sku_id', 'item_group_id', 'title', 'description', 'availability', 'condition', 'price', 'sale_price', 'link', 'image_link', 'brand', 'size', 'product_type'];
+  const q = (v) => { const t = String(v ?? '').replace(/\r?\n/g, ' '); return /[",]/.test(t) ? '"' + t.replace(/"/g, '""') + '"' : t; };
+  const lines = rows.map(({ it, file }) => [
+    it.id, it.group, it.title, (it.description || it.title).slice(0, 4900), it.availability, it.condition || 'new',
+    `${it.price.toFixed(2)} TRY`, `${it.sale.toFixed(2)} TRY`, it.link, BASE + '/' + file, it.brand, it.size, it.product_type,
+  ].map(q).join(','));
+  return '\ufeff' + [cols.join(','), ...lines].join('\n') + '\n';
+}
+
 async function renderOne(page, html, ctx, outFile) {
   const ctxTag = `<script>window.__CTX=${JSON.stringify(ctx).replace(/</g, '\\u003c')};</script>`;
   await page.setContent(html.replace('<body>', '<body>' + ctxTag), { waitUntil: 'networkidle', timeout: 60000 });
@@ -174,6 +185,7 @@ async function buildBrand(slug, browser) {
     s.failed = s.rows.filter((r) => failed.has(r.file)).length;
     s.rows = s.rows.filter((r) => !failed.has(r.file));
     fs.writeFileSync(path.join(outDir, 'feeds', `${s.key}.xml`), feedXml(brand, `${brand.name} · ${s.title}`, s.rows));
+    fs.writeFileSync(path.join(outDir, 'feeds', `${s.key}.tiktok.csv`), feedTiktokCsv(s.rows));
     console.log(`[${slug}] ${s.key.padEnd(14)} kurala uyan ${String(s.matched).padStart(3)} · feed ${String(s.rows.length).padStart(3)} · tasarım ${s.designs} · atlanan ${JSON.stringify(s.skipped)} · hata ${s.failed}`);
   }
   fs.writeFileSync(path.join(outDir, 'index.html'), previewHtml(brand, slug, summary));
