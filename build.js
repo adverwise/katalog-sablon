@@ -79,7 +79,7 @@ ${items.join('\n')}
 // Satır, ürünün stoktaki ilk bedeni (Shopify sırası) üzerinden yazılır; o beden biterse sıradaki stoktaki bedene geçer,
 // ürün ancak tüm bedenleri bitince feed'den çıkar. sku_id = o bedenin varyant ID'si (piksel content_id biçimiyle aynı).
 function feedTiktokCsv(brand, rows) {
-  const cols = ['sku_id', 'item_group_id', 'title', 'description', 'availability', 'condition', 'price', 'sale_price', 'link', 'image_link', 'brand', 'product_type', 'google_product_category'];
+  const cols = ['sku_id', 'item_group_id', 'title', 'description', 'availability', 'condition', 'price', 'sale_price', 'link', 'image_link', 'brand', 'product_type', 'google_product_category', 'gender', 'age_group'];
   const q = (v) => { const t = String(v ?? '').replace(/\r?\n/g, ' '); return /[",]/.test(t) ? '"' + t.replace(/"/g, '""') + '"' : t; };
   const seen = new Set();
   const lines = [];
@@ -89,7 +89,7 @@ function feedTiktokCsv(brand, rows) {
     seen.add(g);
     lines.push([
       it.id, g, it.title, (it.description || it.title).slice(0, 4900), it.availability, it.condition || 'new',
-      `${it.price.toFixed(2)} TRY`, `${it.sale.toFixed(2)} TRY`, it.link.replace(/\?variant=\d+$/, ''), BASE + '/' + file, it.brand, it.product_type, brand.googleCategory || '',
+      `${it.price.toFixed(2)} TRY`, `${it.sale.toFixed(2)} TRY`, it.link.replace(/\?variant=\d+$/, ''), BASE + '/' + file, it.brand, it.product_type, brand.googleCategory || '', brand.gender || '', brand.ageGroup || '',
     ].map(q).join(','));
   }
   return '\ufeff' + [cols.join(','), ...lines].join('\n') + '\n';
