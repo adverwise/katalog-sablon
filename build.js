@@ -95,19 +95,19 @@ function feedTiktokCsv(brand, rows) {
   return '\ufeff' + [cols.join(','), ...lines].join('\n') + '\n';
 }
 
-async function renderOne(page, html, ctx, outFile) {
+async function renderOne(page, html, ctx, outFile, height = 1080) {
   const ctxTag = `<script>window.__CTX=${JSON.stringify(ctx).replace(/</g, '\\u003c')};</script>`;
   await page.setContent(html.replace('<body>', '<body>' + ctxTag), { waitUntil: 'networkidle', timeout: 60000 });
   await page.waitForFunction(() => window.__READY === true, null, { timeout: 60000 });
   const broken = await page.evaluate(() => window.__BROKEN || []);
   if (broken.length) throw new Error('görsel yüklenemedi: ' + broken.join(', '));
   fs.mkdirSync(path.dirname(outFile), { recursive: true });
-  await page.screenshot({ path: outFile, type: 'jpeg', quality: 90, clip: { x: 0, y: 0, width: 1080, height: 1080 } });
+  await page.screenshot({ path: outFile, type: 'jpeg', quality: 90, clip: { x: 0, y: 0, width: 1080, height } });
 }
 
 function previewHtml(brand, slug, summary) {
   const cards = summary.map((s) => `
-<section><h2>${x(s.title)} <small>${s.rows.length} ürün · ${s.designs} tasarım · <a href="feeds/${x(s.key)}.xml">feed</a></small></h2>
+<section><h2>${x(s.title)} <small>${s.rows.length} ürün · ${s.designs} tasarım · ${s.tiktok ? (s.tiktokCsv ? `<a href="feeds/${x(s.tiktokCsv)}.tiktok.csv">TikTok feed</a>` : 'taslak (henüz feed\'e bağlı değil)') : `<a href="feeds/${x(s.key)}.xml">feed</a>`}</small></h2>
 <p class="meta">Kurala uyan ${s.matched} kalem · atlanan: stok dışı ${s.skipped.stok}, indirimsiz ${s.skipped.indirim}, görselsiz ${s.skipped.gorsel}, render hatası ${s.failed}</p>
 <div class="grid">${[...new Map(s.rows.map((r) => [r.file, r])).values()].map((r) =>
     `<a href="${x(r.it.link)}" target="_blank" rel="noopener"><img loading="lazy" src="../${x(r.file)}" alt=""><span>${x(r.it.title)}</span></a>`).join('')}</div></section>`).join('');
@@ -152,7 +152,7 @@ async function buildBrand(slug, browser) {
       const p = brand.toProduct(it, imgs[k], ctx);
       const h = crypto.createHash('sha1').update(JSON.stringify([tplHash, f.template, p])).digest('hex').slice(0, 16);
       const file = `${slug}/img/${f.key}/${h}.jpg`;
-      if (!jobs.has(file)) jobs.set(file, { key: f.template, p });
+      if (!jobs.has(file)) jobs.set(file, { key: f.template, p, height: f.height || 1080 });
       rows.push({ it, file });
     }
     summary.push({ ...f, rows, matched: all.length, skipped, designs: new Set(rows.map((r) => r.file)).size, failed: 0 });
@@ -173,14 +173,14 @@ async function buildBrand(slug, browser) {
 
   const failed = new Set();
   if (todo.length) {
-    const bctx = await browser.newContext({ viewport: { width: 1080, height: 1080 }, deviceScaleFactor: 1 });
+    const bctx = await browser.newContext({ viewport: { width: 1080, height: 1920 }, deviceScaleFactor: 1 });
     let i = 0;
     await Promise.all(Array.from({ length: CONCURRENCY }, async () => {
       while (i < todo.length) {
         const [file, job] = todo[i++];
         for (let attempt = 0; attempt < 2; attempt++) {
           const page = await bctx.newPage();
-          try { await renderOne(page, html, { logo, key: job.key, p: job.p }, path.join(OUT, file)); failed.delete(file); break; }
+          try { await renderOne(page, html, { logo, key: job.key, p: job.p }, path.join(OUT, file), job.height); failed.delete(file); break; }
           catch (e) { failed.add(file); if (attempt) console.warn(`! ${file}: ${e.message}`); }
           finally { await page.close(); }
         }
@@ -193,8 +193,10 @@ async function buildBrand(slug, browser) {
   for (const s of summary) {
     s.failed = s.rows.filter((r) => failed.has(r.file)).length;
     s.rows = s.rows.filter((r) => !failed.has(r.file));
-    fs.writeFileSync(path.join(outDir, 'feeds', `${s.key}.xml`), feedXml(brand, `${brand.name} · ${s.title}`, s.rows));
-    fs.writeFileSync(path.join(outDir, 'feeds', `${s.key}.tiktok.csv`), feedTiktokCsv(brand, s.rows));
+    // TikTok'a özel feed'ler (f.tiktok) XML üretmez; tiktokCsv verilmişse o adın .tiktok.csv dosyasını yazar (normal feed'in CSV'sinin yerine geçer).
+    const tiktokTargets = new Set(summary.filter((t) => t.tiktok && t.tiktokCsv).map((t) => t.tiktokCsv));
+    if (!s.tiktok) fs.writeFileSync(path.join(outDir, 'feeds', `${s.key}.xml`), feedXml(brand, `${brand.name} · ${s.title}`, s.rows));
+    if (s.tiktok ? s.tiktokCsv : !tiktokTargets.has(s.key)) fs.writeFileSync(path.join(outDir, 'feeds', `${s.tiktok ? s.tiktokCsv : s.key}.tiktok.csv`), feedTiktokCsv(brand, s.rows));
     console.log(`[${slug}] ${s.key.padEnd(14)} kurala uyan ${String(s.matched).padStart(3)} · feed ${String(s.rows.length).padStart(3)} · tasarım ${s.designs} · atlanan ${JSON.stringify(s.skipped)} · hata ${s.failed}`);
   }
   fs.writeFileSync(path.join(outDir, 'index.html'), previewHtml(brand, slug, summary));

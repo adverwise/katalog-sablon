@@ -74,6 +74,9 @@ module.exports = {
     { key: 'a2-takimlar', template: 'A2', title: 'A2 Now Live · Tüm takımlar', select: isSetPiece },
     { key: 'b1-bestseller', template: 'B1', title: 'B1 Tiger · Bestseller', select: (it) => isSetPiece(it) && BEST_IDS.has(it.product_id) },
     { key: 'b2-bestseller', template: 'B2', title: 'B2 Now Live · Bestseller', select: (it) => isSetPiece(it) && BEST_IDS.has(it.product_id) },
+    // TikTok dikey 9:16 (1080×1920). tiktokCsv eklenince a1-takimlar.tiktok.csv / b1-bestseller.tiktok.csv bu görsellere geçer.
+    { key: 'tt-a1-takimlar', template: 'A1V', height: 1920, tiktok: true, title: 'TikTok 9:16 · A1 Tiger · Tüm takımlar', select: isSetPiece },
+    { key: 'tt-b1-bestseller', template: 'B1V', height: 1920, tiktok: true, title: 'TikTok 9:16 · B1 Tiger · Bestseller', select: (it) => isSetPiece(it) && BEST_IDS.has(it.product_id) },
   ],
   toProduct,
   // test için dışa açık

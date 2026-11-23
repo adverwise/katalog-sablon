@@ -250,6 +250,25 @@ figcaption{font-size:12px;color:var(--muted)}
 .ad .bsl{align-self:flex-start;font-size:26px;padding:8px 12px 6px;margin-bottom:8px}
 .a1 .stack.ctr,.a2 .stack.ctr{align-items:flex-start !important;text-align:left !important}
 .a1 .dlbox{align-self:flex-start;margin-top:22px;border:3px solid #ff9cc4;color:#ff2453;font-weight:900;font-stretch:75%;font-size:30px;letter-spacing:.04em;line-height:1;padding:9px 14px 7px;white-space:nowrap}
+
+/* ================= TikTok dikey · 1080×1920 (A1V / B1V) =================
+   Güvenli alan: üstte ~140px "Takip/Sana Özel", sağda x>880 & y>880 TikTok butonları, altta y>1380 açıklama + CTA + menü.
+   Fiyat, rozet, tarih ve isim hep x≤880, y≤1360 içinde. */
+.ad.v{height:1920px}
+.a1.v .vb{position:absolute;left:36px;right:36px;bottom:0;background:#000;color:#fff}
+.a1.v .vb[style*=height]{bottom:auto}
+.a1.v .vin{position:absolute;left:44px;width:800px;display:flex;flex-direction:column;align-items:flex-start}
+.a1.v .vrow{display:flex;gap:14px;align-items:center}
+.a1.v .vdl{border:3px solid #ff9cc4;color:#ff2453;font-weight:900;font-stretch:75%;font-size:44px;letter-spacing:.04em;line-height:1.05;padding:14px 20px 10px;white-space:nowrap;text-align:center}
+.a1.v .vbs{font-size:34px;padding:10px 14px 8px}
+.a1.v .vh{width:800px;margin-top:22px}
+.a1.v .vh .fl.w1{width:62%}
+.a1.v .vnm{font-weight:700;font-stretch:85%;font-size:40px;line-height:1.1;margin-top:26px;max-width:800px}
+.a1.v .vst{font-size:32px;color:#ff9cc4;font-stretch:85%;margin-top:6px}
+.a1.v .vpr{display:flex;align-items:center;gap:20px;white-space:nowrap;margin-top:18px}
+.a1.v .vpr s{font-size:40px;color:#8f8f8f;font-stretch:75%;font-weight:600;text-decoration-thickness:4px}
+.a1.v .vpr b{font-size:104px;font-stretch:62%;font-weight:900;line-height:.9}
+.a1.v .vpr .badge{font-size:58px;padding:9px 14px 6px}
 </style>
 <style>html,body{margin:0;padding:0;width:1080px;height:1080px;overflow:hidden;background:#fff}</style>
 </head><body>
@@ -403,6 +422,25 @@ const T = {
  }
 };
 
+/* ---------- TikTok dikey 9:16 · A1V (tüm takımlar) / B1V (bestseller) ----------
+   Üstte başlık kutusu, ortada büyük fotoğraflar, altta isim/fiyat; en alt siyah alan TikTok açıklaması ve CTA için boş. */
+const VZ = ()=>zebra().replace('viewBox="0 0 1080 1080"','viewBox="0 0 1080 1920"').replace('<rect width="1080" height="1080" fill="#efe7d8"/>','<rect width="1080" height="1920" fill="#efe7d8"/>').replace('rotate(-24 540 540) translate(-300 -300) scale(1.6)','rotate(-24 540 960) translate(-500 -300) scale(2.2)');
+function VAD(p,bs){
+  const m=modeOf(p), HY=140, HH=250, PY=HY+HH+24, PH=640, BY=PY+PH+24;
+  let G;
+  if(m==='three') G=[0,1,2].map(i=>({x:36+i*340,y:PY,w:328,h:PH}));
+  else if(m==='two') G=[{x:36,y:PY,w:498,h:PH},{x:546,y:PY,w:498,h:PH}];
+  else G=[{x:190,y:PY,w:700,h:PH}];
+  const cells=G.map((g,i)=>ph(p.imgs[i],g)).join("");
+  const g0=G[0], LG=`<div class="abs" style="left:${g0.x+22}px;top:${g0.y+g0.h-22-47}px">${logo(140)}</div>`;
+  const BSL=bs?`<div class="abs fav a1f vbs" style="left:${G[G.length-1].x+G[G.length-1].w-22}px;top:${PY+22}px;transform:translateX(-100%)">BESTSELLER</div>`:'';
+  const head=`<div class="vb" style="top:${HY}px;height:${HH}px"><div class="vin" style="top:34px;width:650px"><div class="vh" style="width:650px;margin:0"><div class="fl w1" data-fit><span>BARBARIAN</span></div><div class="fl w2" data-fit><span>BLACK FRIDAY</span></div></div></div><div class="abs vdl" style="right:30px;top:34px">SON GÜN<br>30 KASIM</div></div>`;
+  const info=`<div class="vb" style="top:${BY}px"><div class="vin" style="top:26px"><div class="vnm" style="margin:0">${p.title}</div>${p.set?`<div class="vst">Takım ${p.set}</div>`:''}<div class="vpr"><s>${p.old}</s><b>${p.new}</b><span class="badge">%${p.pct}</span></div></div></div>`;
+  return `<div lang="tr" class="ad a1 v">${VZ()}${head}${cells}${LG}${BSL}${info}</div>`;
+}
+T.A1V = p=>VAD(p,false);
+T.B1V = p=>VAD(p,true);
+
 /* Ürünü kesmemek için: düz (stüdyo) zeminli fotoğraf hücreye sığdırılır (contain) ve boşluk fotoğrafın kendi kenar rengiyle doldurulur.
    Zemini dokulu/lifestyle fotoğraflar hücreyi doldurmaya (cover) devam eder. */
 function fitPhotos(root){
@@ -442,6 +480,7 @@ function fit(root){
 (async () => {
   const {key, p} = window.__CTX;
   document.body.innerHTML = T[key](p);
+  if (/V$/.test(key)) { document.documentElement.style.height = document.body.style.height = '1920px'; }
   await document.fonts.ready;
   await Promise.all([...document.images].map(i => i.complete ? 0 : new Promise(r => { i.onload = i.onerror = r; })));
   fitPhotos(document.body);
