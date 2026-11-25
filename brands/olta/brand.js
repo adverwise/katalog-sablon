@@ -19,16 +19,22 @@ const lower = (s) => String(s || '').toLocaleLowerCase('tr').trim();
 const ALIAS = { strawbery: 'strawberry', 'lauda helmet': 'lauda' };
 const baseName = (t) => { const b = lower(t).replace(/\s+(kolye|charm)$/, ''); return ALIAS[b] || b; };
 const metalOf = (it) => it.options.Renk || '';
+// Renk (Çeşit) bazında ayrı tasarım alan ürünler: her rengin varyant görselleri düzgün olanlar (25 Kasım kararı).
+// Oltove ve Lauda'da renklerin görselleri karışık/eksik, onlar tek tasarım kalır.
+const COLOR_PRODUCTS = new Set(['Gemmy Charm', 'Gemmy Bileklik', 'Oltodots Charm', 'Lucky Orbs Charm']);
+const isColorProduct = (it) => COLOR_PRODUCTS.has(it.title) && !!it.options['Çeşit'];
+const colorOf = (it) => it.options['Çeşit'] || '';
 
 // 2.850,00 TL — kuruşlu, yuvarlamasız (kuruş altı çıkarsa yukarı: asla ödenenden düşük gösterilmez)
 const tl = (n) => (Math.ceil(n * 100 - 1e-6) / 100).toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' TL';
 
 let STATE = null; // prepare() doldurur; select/images bunu kullanır
 
-// Ürünün belirli metaldeki varyant görseli (Shopify'da varyanta bağlı görsel)
-function metalImage(variants, metal) {
+// Ürünün belirli metaldeki (ve verilirse belirli renkteki) varyant görseli (Shopify'da varyanta bağlı görsel)
+function metalImage(variants, metal, color) {
   for (const v of variants) {
     if (metalOf(v) !== metal) continue;
+    if (color && colorOf(v) !== color) continue;
     const m = v.media.find((x) => x.variant_ids.includes(v.id));
     if (m) return m.src;
   }
@@ -45,12 +51,20 @@ function prepare(items) {
   const kolyeByName = new Map();
   for (const [, vs] of byProduct) if (lower(vs[0].product_type) === 'kolye') kolyeByName.set(baseName(vs[0].title), vs);
 
-  // Ürün başına temsilci varyant: stoktaki ilk Silver, yoksa stoktaki ilk varyant
+  // Ürün başına (renk ürünlerinde ürün + renk başına) temsilci varyant: stoktaki ilk Silver, yoksa stoktaki ilk varyant
   const chosen = new Set();
   for (const [, vs] of byProduct) {
     const inStock = vs.filter((v) => v.availability === 'in stock');
-    const pick = inStock.find((v) => metalOf(v) === 'Silver') || inStock[0];
-    if (pick) chosen.add(pick.id);
+    const groups = new Map();
+    for (const v of inStock) {
+      const k = isColorProduct(v) ? colorOf(v) : '';
+      if (!groups.has(k)) groups.set(k, []);
+      groups.get(k).push(v);
+    }
+    for (const g of groups.values()) {
+      const pick = g.find((v) => metalOf(v) === 'Silver') || g[0];
+      chosen.add(pick.id);
+    }
   }
   STATE = { byProduct, charmNames, kolyeByName, chosen };
   for (const it of items) it.custom_label_0 = groupOf(it) || '';
@@ -67,6 +81,7 @@ const select = (group) => (it) => STATE.chosen.has(it.id) && groupOf(it) === gro
 
 // Tasarıma girecek görseller, sırayla: silver (büyük, solda) · gold · vücutta takılı görsel
 function images(it) {
+  if (isColorProduct(it)) return colorImages(it);
   const curated = SEL.liste[it.handle];
   if (curated) return curated.map(normImage);
   const vs = STATE.byProduct.get(it.product_id);
@@ -85,9 +100,23 @@ function images(it) {
   return list.length ? list : it.images; // hiç varyant görseli yoksa ürünün kendi sırası
 }
 
+// Renk ürünleri: o rengin silver'ı (charm'da aynı renkteki silver kolye) · o rengin gold'u · takılı görsel
+function colorImages(it) {
+  const vs = STATE.byProduct.get(it.product_id);
+  const c = colorOf(it);
+  const isCharm = lower(it.product_type) === 'charm';
+  const k = isCharm && STATE.kolyeByName.get(baseName(it.title));
+  const worn = SEL.takili[it.handle] ? normImage(SEL.takili[it.handle])
+    : (SEL.liste[it.handle] || []).length >= 3 ? normImage(SEL.liste[it.handle][2]) : null;
+  const out = [(k && metalImage(k, 'Silver', c)) || metalImage(vs, 'Silver', c), metalImage(vs, 'Gold', c), worn].filter(Boolean);
+  return out.length ? out : it.images;
+}
+
 function toProduct(it, imgs) {
   const g = groupOf(it);
-  return { name: it.title, old: tl(it.price), now: tl(it.price * RATE[g]), imgs };
+  const c = isColorProduct(it) ? colorOf(it) : '';
+  const name = c ? `${it.title} · ${/^\d+$/.test(c) ? 'No. ' + c : c}` : it.title;
+  return { name, old: tl(it.price), now: tl(it.price * RATE[g]), imgs };
 }
 
 module.exports = {
