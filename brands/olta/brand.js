@@ -1,8 +1,8 @@
 // oltâ · OLTÂ FRIDAY / Black Friday 2026 katalogları.
-// İndirim sitede değil, kodla uygulanıyor (BFOLTA25, BFOLTA15). Kod görselde YOK; görselde liste fiyatı ve kodlu fiyat var.
-// Feed'deki fiyat = sitedeki liste fiyatı (sale_price yazılmaz; Meta sayfa fiyatıyla karşılaştırıyor).
-//   net25: charm (+ charm'ı olmayan kolyeler), yüzük, küpe  → liste × 0,75 · "ERKEN ERİŞİM" (27.11 00.00'a kadar)
-//   net15: bileklik, zincir                                  → liste × 0,85 · son gün 30 Kasım
+// 25 Kasım akşamından itibaren indirim sitede fiyata uygulanıyor (kod yok): karşılaştırmalı fiyat = liste, fiyat = indirimli.
+// Görselde üstü çizili karşılaştırmalı fiyat ve sitedeki güncel fiyat var; feed'de price + sale_price sayfayla aynı.
+//   net25: charm (+ charm'ı olmayan kolyeler), yüzük, küpe  → sitede %25 · "ERKEN ERİŞİM" (27.11 00.00'a kadar)
+//   net15: bileklik, zincir                                  → sitede %15 · son gün 30 Kasım
 // Kolye ile aynı isimli charm aynı parça: kolye feed'e girmez, charm girer (fiyat ve link charm'ın; tasarımda büyük alanda silver kolye, küçükte gold charm).
 // Her üründen feed'e TEK satır girer (Gold/Silver aynı tasarımda gösterildiği için aynı ürün carousel'de iki kez çıkmasın).
 const fs = require('fs');
@@ -77,7 +77,10 @@ function groupOf(it) {
   return GROUP_OF_TYPE[t] || null;
 }
 
-const select = (group) => (it) => STATE.chosen.has(it.id) && groupOf(it) === group;
+// İndirim sitede fiyata uygulanıyor (25 Kasım akşamı kodlar kaldırıldı): price = karşılaştırmalı fiyat, sale = güncel fiyat.
+// Görselde "NET %25 / %15" yazdığı için yalnızca indirimi grubun oranına uyan ürünler girer (±%1); uymayan ürün tasarıma girmez.
+const rateOk = (it, group) => it.sale > 0 && it.sale < it.price && Math.abs(it.sale / it.price - RATE[group]) < 0.01;
+const select = (group) => (it) => STATE.chosen.has(it.id) && groupOf(it) === group && rateOk(it, group);
 
 // Tasarıma girecek görseller, sırayla: silver (büyük, solda) · gold · vücutta takılı görsel
 function images(it) {
@@ -116,7 +119,8 @@ function toProduct(it, imgs) {
   const g = groupOf(it);
   const c = isColorProduct(it) ? colorOf(it) : '';
   const name = c ? `${it.title} · ${/^\d+$/.test(c) ? 'No. ' + c : c}` : it.title;
-  return { name, old: tl(it.price), now: tl(it.price * RATE[g]), imgs };
+  // Üstü çizili: karşılaştırmalı fiyat · büyük fiyat: sitedeki güncel (indirimli) fiyat
+  return { name, old: tl(it.price), now: tl(it.sale), imgs };
 }
 
 module.exports = {
@@ -124,7 +128,6 @@ module.exports = {
   site: 'https://oltajewelry.com',
   description: 'oltâ · OLTÂ FRIDAY 2026 katalogları',
   source: { type: 'shopify', site: 'https://oltajewelry.com' },
-  requireDiscount: false,
   maxImgs: 3,
   template: path.join(__dirname, 'template.html'),
   logo: path.join(__dirname, 'assets', 'logo.png'),
