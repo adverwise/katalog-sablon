@@ -42,11 +42,11 @@ const OFFER = {
 
 // Görsel düzeni görsel sayısına göre: 3 → büyük silver + sağda gold ve takılı görsel · 2 → iki eşit dikey parça · 1 → tek görsel tüm alan
 function media(imgs) {
-  const im = (u, st = '') => `<div class="img" style="${st}"><img src="${esc(u)}"></div>`;
+  const im = (u, st = '') => `<div class="img" style="${st}"><img crossorigin="anonymous" src="${esc(u)}"></div>`;
   if (imgs.length >= 3) return im(imgs[0], 'width:640px;height:600px;flex-shrink:0') +
     `<div class="col">${im(imgs[1], 'height:288px')}${im(imgs[2], 'height:288px')}</div>`;
   if (imgs.length === 2) return im(imgs[0], 'width:480px;height:600px') + im(imgs[1], 'width:480px;height:600px');
-  return `<div class="img" style="width:984px;height:600px;background:#fff"><img src="${esc(imgs[0])}" style="object-fit:contain"></div>`;
+  return `<div class="img" style="width:984px;height:600px;background:#fff"><img crossorigin="anonymous" src="${esc(imgs[0])}" style="object-fit:contain"></div>`;
 }
 
 function ad(key, p, logo) {
@@ -65,6 +65,28 @@ function ad(key, p, logo) {
 </div>`;
 }
 
+// Beyaz zeminli stüdyo çekimi mi? Kenar piksellerinin neredeyse tamamı beyazsa evet.
+// Stüdyo çekimleri kırpılmadan sığdırılır (contain, beyaz zemin); lifestyle görseller alanı doldurur (cover).
+// Böylece bileklik ve zincir gibi geniş ürünler dar kutularda kenarlardan kesilmez.
+function isStudio(img) {
+  try {
+    const N = 48, c = document.createElement('canvas'); c.width = c.height = N;
+    const g = c.getContext('2d'); g.drawImage(img, 0, 0, N, N);
+    const d = g.getImageData(0, 0, N, N).data;
+    let white = 0, total = 0;
+    for (let i = 0; i < N; i++) for (const [x, y] of [[i, 0], [i, N - 1], [0, i], [N - 1, i]]) {
+      const k = (y * N + x) * 4; total++;
+      if (d[k] > 232 && d[k + 1] > 232 && d[k + 2] > 232) white++;
+    }
+    return white / total > 0.9;
+  } catch { return false; }
+}
+function fitStudio() {
+  for (const img of document.querySelectorAll('.img img')) {
+    if (img.naturalWidth && isStudio(img)) { img.style.objectFit = 'contain'; img.parentElement.style.background = '#fff'; }
+  }
+}
+
 (async () => {
   const { key, p, logo } = window.__CTX;
   document.body.innerHTML = ad(key, p, logo);
@@ -73,6 +95,7 @@ function ad(key, p, logo) {
   const big = document.querySelector('.big');
   big.style.fontSize = (112 * 984 / big.getBoundingClientRect().width) + 'px';
   await Promise.all([...document.images].map(i => i.complete ? 0 : new Promise(r => { i.onload = i.onerror = r; })));
+  fitStudio();
   window.__BROKEN = [...document.images].filter(i => !i.naturalWidth).map(i => i.src.slice(0, 120));
   window.__READY = true;
 })();
