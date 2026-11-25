@@ -3,7 +3,7 @@
 // Feed'deki fiyat = sitedeki liste fiyatı (sale_price yazılmaz; Meta sayfa fiyatıyla karşılaştırıyor).
 //   net25: charm (+ charm'ı olmayan kolyeler), yüzük, küpe  → liste × 0,75 · "ERKEN ERİŞİM" (27.11 00.00'a kadar)
 //   net15: bileklik, zincir                                  → liste × 0,85 · son gün 30 Kasım
-// Kolye ile aynı isimli charm aynı parça: kolye feed'e girmez, charm girer (fiyat ve link charm'ın; tasarımda gold kolye görünür).
+// Kolye ile aynı isimli charm aynı parça: kolye feed'e girmez, charm girer (fiyat ve link charm'ın; tasarımda büyük alanda silver kolye, küçükte gold charm).
 // Her üründen feed'e TEK satır girer (Gold/Silver aynı tasarımda gösterildiği için aynı ürün carousel'de iki kez çıkmasın).
 const fs = require('fs');
 const path = require('path');
@@ -70,13 +70,16 @@ function images(it) {
   const curated = SEL.liste[it.handle];
   if (curated) return curated.map(normImage);
   const vs = STATE.byProduct.get(it.product_id);
-  const out = [metalImage(vs, 'Silver')];
+  const out = [];
   if (lower(it.product_type) === 'charm') {
+    // Charm: büyük alanda silver kolye (zincirli hâli), küçükte gold charm, sonra takılı görsel.
+    // Kolyesi olmayan charm'da büyük alana silver charm gelir.
     const k = STATE.kolyeByName.get(baseName(it.title));
-    out.push((k && metalImage(k, 'Gold')) || metalImage(vs, 'Gold'));
+    out.push((k && metalImage(k, 'Silver')) || metalImage(vs, 'Silver'));
+    out.push(metalImage(vs, 'Gold'));
     if (SEL.takili[it.handle]) out.push(normImage(SEL.takili[it.handle]));
   } else {
-    out.push(metalImage(vs, 'Gold'));
+    out.push(metalImage(vs, 'Silver'), metalImage(vs, 'Gold'));
   }
   const list = out.filter(Boolean);
   return list.length ? list : it.images; // hiç varyant görseli yoksa ürünün kendi sırası
