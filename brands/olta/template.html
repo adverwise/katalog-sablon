@@ -1,7 +1,7 @@
 <!doctype html><html lang="tr"><head><meta charset="utf-8">
 <!-- oltâ · OLTÂ FRIDAY 2026 katalog şablonları (net25, net15), 1080×1080.
      Motor bu sayfayı ürün başına açar: window.__CTX = {logo, key, p}; p = {name, old, now, imgs}.
-     Renkler Olta kitinden: siyah/beyaz/gri; tek vurgu kırmızı bitiş tarihi kutusu. Üstte siyah şerit: logo + FRIDAY, tarih kutusu, büyük oran, küçük kategoriler.
+     Renkler Olta kitinden: siyah/beyaz/gri; tek vurgu kırmızı bitiş tarihi kutusu. Üstte siyah şerit: BLACK FRIDAY, tarih kutusu, büyük oran, küçük kategoriler. Logo ürün adının üstünde.
      Font: sitede Helvetica/Arial; sunucuda Helvetica yok, Arial ölçülerindeki Arimo kullanılır. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=block">
@@ -10,20 +10,20 @@ html,body{margin:0;padding:0;width:1080px;height:1080px;overflow:hidden;backgrou
 *{box-sizing:border-box}
 .ad{width:1080px;height:1080px;background:#fff;color:#000;font-family:Arimo,Helvetica,Arial,sans-serif;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
 .head{height:272px;flex-shrink:0;background:#000;color:#fff;padding:30px 48px 0;display:flex;flex-direction:column}
-.head .row{display:flex;justify-content:space-between;align-items:center;gap:24px}
-.head .brand{display:flex;align-items:flex-end;gap:18px}
-.head .brand img{height:58px;width:auto;filter:invert(1);display:block}
-.head .brand span{font-weight:700;font-size:30px;letter-spacing:10px;line-height:1;padding-bottom:6px}
-/* bitiş tarihi kutusu: siyah şeridin üstünde ayrı renk */
-.end{background:var(--box,#E0101A);color:var(--boxfg,#fff);font-weight:700;font-size:21px;letter-spacing:4px;padding:14px 22px;border-radius:2px;white-space:nowrap}
-.head .big{font-weight:700;font-size:112px;line-height:.95;letter-spacing:-3px;margin-top:18px;white-space:nowrap}
-.head .cats{font-size:18px;letter-spacing:6px;color:#BDBDBD;margin-top:14px}
+.head .row{display:flex;justify-content:space-between;align-items:center;height:52px}
+/* üst satır: solda BLACK FRIDAY, sağda kırmızı tarih kutusu; ikisi aynı punto ve aynı yükseklikte */
+.head .bf{font-weight:700;font-size:26px;letter-spacing:9px;line-height:52px;white-space:nowrap}
+.end{background:var(--box,#E0101A);color:var(--boxfg,#fff);font-weight:700;font-size:22px;letter-spacing:4px;line-height:52px;height:52px;padding:0 22px;border-radius:2px;white-space:nowrap}
+/* başlık tam içerik genişliğine oturtulur (fitBig): sol kenarı BLACK FRIDAY'le, sağ kenarı tarih kutusuyla aynı hizada */
+.head .big{display:block;font-weight:700;font-size:112px;line-height:.95;letter-spacing:-2px;margin-top:20px;white-space:nowrap;width:max-content}
+.head .cats{font-size:18px;letter-spacing:6px;color:#BDBDBD;margin-top:16px}
 .media{height:600px;flex-shrink:0;margin:24px 48px 0;display:flex;gap:24px}
 .img{background:#F4F4F4;overflow:hidden}
 .img img{width:100%;height:100%;object-fit:cover;display:block}
 .col{flex-grow:1;display:flex;flex-direction:column;gap:24px;min-width:0}
 .foot{flex-grow:1;margin:0 48px;display:flex;align-items:flex-end;justify-content:space-between;gap:32px;padding-bottom:30px;min-height:0}
-.foot .left{flex-grow:1;min-width:0;display:flex;flex-direction:column;gap:8px}
+.foot .left{flex-grow:1;min-width:0;display:flex;flex-direction:column;gap:10px}
+.foot .logo{height:40px;width:auto;align-self:flex-start;display:block}
 .foot .name{font-weight:400;font-size:36px;line-height:1.15;letter-spacing:1px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
 .foot .right{flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;gap:4px}
 .old{font-size:24px;color:#999;text-decoration:line-through}
@@ -37,7 +37,7 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 // Teklife göre değişen kısımlar
 const OFFER = {
   net25: { pct: '%25', cats: 'KOLYE · CHARM · YÜZÜK · KÜPE', end: "27.11 00.00'A KADAR", label: 'ERKEN ERİŞİM FİYATI' },
-  net15: { pct: '%15', cats: 'BİLEKLİK · ZİNCİR', end: 'SON GÜN 30 KASIM', label: 'OLTÂ FRIDAY FİYATI' },
+  net15: { pct: '%15', cats: 'BİLEKLİK · ZİNCİR', end: 'SON GÜN 30 KASIM', label: 'BLACK FRIDAY FİYATI' },
 };
 
 // Görsel düzeni görsel sayısına göre: 3 → büyük silver + sağda gold ve takılı görsel · 2 → iki eşit dikey parça · 1 → tek görsel tüm alan
@@ -53,13 +53,13 @@ function ad(key, p, logo) {
   const o = OFFER[key];
   return `<div class="ad">
   <div class="head">
-    <div class="row"><span class="brand"><img src="${logo}" alt="oltâ"><span>FRIDAY</span></span><span class="end">${o.end}</span></div>
+    <div class="row"><span class="bf">BLACK FRIDAY</span><span class="end">${o.end}</span></div>
     <span class="big">NET ${o.pct} İNDİRİM</span>
     <span class="cats">${o.cats}</span>
   </div>
   <div class="media">${media(p.imgs)}</div>
   <div class="foot">
-    <div class="left"><span class="name">${esc(p.name)}</span></div>
+    <div class="left"><img class="logo" src="${logo}" alt="oltâ"><span class="name">${esc(p.name)}</span></div>
     <div class="right"><span class="old">${esc(p.old)}</span><span class="lbl">${o.label}</span><span class="now">${esc(p.now)}</span></div>
   </div>
 </div>`;
@@ -69,6 +69,9 @@ function ad(key, p, logo) {
   const { key, p, logo } = window.__CTX;
   document.body.innerHTML = ad(key, p, logo);
   await document.fonts.ready;
+  // Başlığı içerik genişliğine (984px) tam oturt
+  const big = document.querySelector('.big');
+  big.style.fontSize = (112 * 984 / big.getBoundingClientRect().width) + 'px';
   await Promise.all([...document.images].map(i => i.complete ? 0 : new Promise(r => { i.onload = i.onerror = r; })));
   window.__BROKEN = [...document.images].filter(i => !i.naturalWidth).map(i => i.src.slice(0, 120));
   window.__READY = true;
