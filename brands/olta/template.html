@@ -40,11 +40,11 @@ const OFFER = {
   net15: { pct: '%15', cats: 'BİLEKLİK · ZİNCİR', end: 'SON GÜN 30 KASIM', label: 'BLACK FRIDAY FİYATI' },
 };
 
-// Görsel düzeni görsel sayısına göre: 3 → büyük silver + sağda gold ve takılı görsel · 2 → iki eşit dikey parça · 1 → tek görsel tüm alan
+// Görsel düzeni görsel sayısına göre: 3 → solda silver (520px), sağda küçük gold ve büyük takılı görsel · 2 → iki eşit dikey parça · 1 → tek görsel tüm alan
 function media(imgs) {
   const im = (u, st = '') => `<div class="img" style="${st}"><img crossorigin="anonymous" src="${esc(u)}"></div>`;
-  if (imgs.length >= 3) return im(imgs[0], 'width:640px;height:600px;flex-shrink:0') +
-    `<div class="col">${im(imgs[1], 'height:288px')}${im(imgs[2], 'height:288px')}</div>`;
+  if (imgs.length >= 3) return im(imgs[0], 'width:520px;height:600px;flex-shrink:0') +
+    `<div class="col">${im(imgs[1], 'height:184px')}${im(imgs[2], 'height:392px')}</div>`;
   if (imgs.length === 2) return im(imgs[0], 'width:480px;height:600px') + im(imgs[1], 'width:480px;height:600px');
   return `<div class="img" style="width:984px;height:600px;background:#fff"><img crossorigin="anonymous" src="${esc(imgs[0])}" style="object-fit:contain"></div>`;
 }
