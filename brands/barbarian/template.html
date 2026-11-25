@@ -305,13 +305,20 @@ function sideLayout(p,o={}){ // returns {cells, text}
 }
 
 /* shared text pieces: headline is always BARBARIAN BLACK FRIDAY; discount lives only as a badge beside the price; set price shows only its discounted total; no buttons */
-const HEAD = (m,lower)=>{
+/* Tiger (A1/B1/A1V/B1V) başlığı · 25 Kasım onaylı: 3'lü/2'li = BLACK FRIDAY / %60'A VARAN İNDİRİM; tekli = BLACK FRIDAY / %60'A (büyük) / VARAN İNDİRİM */
+const hiCls = t => /[İÖÜĞŞÇ]/.test(t) ? ' hi' : '';
+const HEAD60 = m=>{
+  if(m==='one') return `<div class="fl w1" data-fit data-g="h"><span>BLACK FRIDAY</span></div><div class="fl w2" data-fit style="width:78%;margin:6px 0 2px"><span>%60'A</span></div><div class="fl w2${hiCls('İ')}" data-fit data-g="h"><span>VARAN İNDİRİM</span></div>`;
+  return `<div class="fl w1" data-fit${m==='three'?' style="width:62%"':''}><span>BLACK FRIDAY</span></div><div class="fl w2${hiCls('İ')}" data-fit><span>%60'A VARAN İNDİRİM</span></div>`;
+};
+const HEAD = (m,lower,h60)=>{
+  if(h60) return HEAD60(m);
   const W1=lower?'barbarian':'BARBARIAN', W2=lower?'black friday':'BLACK FRIDAY', B=lower?'black':'BLACK', F=lower?'friday':'FRIDAY';
   if(m==='three') return `<div class="fl w1" data-fit style="width:62%"><span>${W1}</span></div><div class="fl w2" data-fit><span>${W2}</span></div>`;
   if(m==='two') return `<div class="fl w1" data-fit><span>${W1}</span></div><div class="fl w2" data-fit><span>${W2}</span></div>`;
   return `<div class="fl w1" data-fit><span>${W1}</span></div><div class="fl w2" data-fit><span>${B}</span></div><div class="fl w2" data-fit><span>${F}</span></div>`;
 };
-const HB = (m,o)=> o.hb?(m==='three'?`<div class="hb">${HEAD(m,o.lower)}</div>`:`<div class="hb side">${HEAD('one',o.lower)}</div>`):HEAD(m,o.lower);
+const HB = (m,o)=> o.hb?(m==='three'?`<div class="hb">${HEAD(m,o.lower,o.h60)}</div>`:`<div class="hb side">${HEAD('one',o.lower,o.h60)}</div>`):HEAD(m,o.lower,o.h60);
 const PRB = (p,badge)=>`<div class="pr"><s>${p.old}</s><b>${p.new}</b>${badge}</div>`;
 const SET = p=> p.set?`<div class="st">Takım ${p.set}</div>`:"";
 /* logo overlay in the bottom-right corner of a photo cell, far from the headline */
@@ -330,7 +337,7 @@ function BODY(p,m,o){
 const T = {
  /* ---------- A1 · TIGER ---------- */
  A1:p=>{
-   const m=modeOf(p), o={badge:`<span class="badge">%${p.pct}</span>`, logo:logo(150,1), twoName:true, center:true, dl:'SON GÜN 30 KASIM', dlNoTwo:true};
+   const m=modeOf(p), o={badge:`<span class="badge">%${p.pct}</span>`, logo:logo(150,1), twoName:true, center:true, dl:'SON GÜN 30 KASIM', dlNoTwo:true, h60:true};
    if(m==='three'){
      const cells=GEO.three(36).map((g,i)=>ph(p.imgs[i],g)).join("");
      return `<div lang="tr" class="ad a1">${zebra()}${cells}<div class="tx" style="${box({x:36,y:552,w:1008,h:492})}"><div class="inner">${BODY(p,m,o)}</div></div></div>`;
@@ -434,7 +441,7 @@ function VAD(p,bs){
   const cells=G.map((g,i)=>ph(p.imgs[i],g)).join("");
   const g0=G[0], LG=`<div class="abs" style="left:${g0.x+22}px;top:${g0.y+g0.h-22-47}px">${logo(140)}</div>`;
   const BSL=bs?`<div class="abs fav a1f vbs" style="left:${G[G.length-1].x+G[G.length-1].w-22}px;top:${PY+22}px;transform:translateX(-100%)">BESTSELLER</div>`:'';
-  const head=`<div class="vb" style="top:${HY}px;height:${HH}px"><div class="vin" style="top:34px;width:650px"><div class="vh" style="width:650px;margin:0"><div class="fl w1" data-fit><span>BARBARIAN</span></div><div class="fl w2" data-fit><span>BLACK FRIDAY</span></div></div></div><div class="abs vdl" style="right:30px;top:34px">SON GÜN<br>30 KASIM</div></div>`;
+  const head=`<div class="vb" style="top:${HY}px;height:${HH}px"><div class="vin" style="top:34px;width:650px"><div class="vh" style="width:650px;margin:0"><div class="fl w1" data-fit><span>BLACK FRIDAY</span></div><div class="fl w2 hi" data-fit><span>%60'A VARAN İNDİRİM</span></div></div></div><div class="abs vdl" style="right:30px;top:34px">SON GÜN<br>30 KASIM</div></div>`;
   const info=`<div class="vb" style="top:${BY}px"><div class="vin" style="top:26px"><div class="vnm" style="margin:0">${p.title}</div>${p.set?`<div class="vst">Takım ${p.set}</div>`:''}<div class="vpr"><s>${p.old}</s><b>${p.new}</b><span class="badge">%${p.pct}</span></div></div></div>`;
   return `<div lang="tr" class="ad a1 v">${VZ()}${head}${cells}${LG}${BSL}${info}</div>`;
 }
@@ -465,6 +472,9 @@ function fit(root){
     for(let k=0;k<3;k++){ const w=sp.offsetWidth; if(!w) break; fs=fs*target/w; el.style.fontSize=fs.toFixed(2)+"px"; }
     while(sp.offsetWidth>target && fs>8){ fs-=.5; el.style.fontSize=fs+"px"; }
   });
+  // data-g: aynı gruptaki satırlar en küçüğün boyutunda (eşit yazı boyu)
+  const gs={}; root.querySelectorAll(".fl[data-g]").forEach(el=>{(gs[el.dataset.g]=gs[el.dataset.g]||[]).push(el)});
+  Object.values(gs).forEach(L=>{const m=Math.min(...L.map(l=>parseFloat(l.style.fontSize)||999)); L.forEach(l=>l.style.fontSize=m+"px")});
   root.querySelectorAll(".tx > .inner").forEach(inner=>{
     inner.style.zoom=""; const cs=getComputedStyle(inner.parentElement);
     const avail=inner.parentElement.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom);
