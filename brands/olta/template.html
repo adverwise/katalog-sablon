@@ -1,0 +1,85 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8">
+<!-- oltâ · OLTÂ FRIDAY 2026 katalog şablonları (net25, net15), 1080×1080.
+     Motor bu sayfayı ürün başına açar: window.__CTX = {logo, key, p}; p = {name, old, now, imgs}.
+     Renkler yalnızca siyah/beyaz/gri (sitedeki marka dili); "erişim açık" noktası pop-up'taki gibi yeşil.
+     Font: sitede Helvetica/Arial; sunucuda Helvetica yok, Arial ölçülerindeki Arimo kullanılır. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=block">
+<style>
+html,body{margin:0;padding:0;width:1080px;height:1080px;overflow:hidden;background:#fff}
+*{box-sizing:border-box}
+.ad{width:1080px;height:1080px;background:#fff;color:#000;font-family:Arimo,Helvetica,Arial,sans-serif;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+.head{height:236px;flex-shrink:0;background:#000;color:#fff;padding:34px 48px 0;display:flex;flex-direction:column}
+.head .row{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.head .brand{display:flex;align-items:flex-end;gap:18px}
+.head .brand img{height:58px;width:auto;filter:invert(1);display:block}
+.head .brand span{font-weight:700;font-size:30px;letter-spacing:10px;line-height:1;padding-bottom:6px}
+.head .corner{display:flex;flex-direction:column;align-items:flex-end;gap:10px;text-align:right}
+.head .big{font-weight:700;font-size:112px;line-height:1;letter-spacing:-2px;margin-top:auto;margin-bottom:30px;white-space:nowrap}
+.live{display:flex;align-items:center;gap:12px;font-weight:700;font-size:20px;letter-spacing:3px}
+.dot{width:14px;height:14px;border-radius:7px;background:#34C759;box-shadow:0 0 12px rgba(52,199,89,.7)}
+.note{font-size:16px;letter-spacing:2px;color:#BDBDBD}
+.last{border:1px dashed #fff;padding:12px 20px;font-weight:700;font-size:24px;letter-spacing:4px}
+.media{height:600px;flex-shrink:0;margin:28px 48px 0;display:flex;gap:24px}
+.img{background:#F4F4F4;overflow:hidden}
+.img img{width:100%;height:100%;object-fit:cover;display:block}
+.col{flex-grow:1;display:flex;flex-direction:column;gap:24px;min-width:0}
+.foot{flex-grow:1;margin:0 48px;display:flex;align-items:flex-end;justify-content:space-between;gap:32px;padding-bottom:36px;min-height:0}
+.foot .left{flex-grow:1;min-width:0;display:flex;flex-direction:column;gap:8px}
+.foot .name{font-weight:400;font-size:40px;line-height:1.15;letter-spacing:1px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+.foot .right{flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.old{font-size:28px;color:#999;text-decoration:line-through}
+.lbl{font-weight:700;font-size:15px;letter-spacing:4px;color:#666}
+.now{font-weight:700;font-size:64px;line-height:1;letter-spacing:-1px;white-space:nowrap}
+</style></head>
+<body>
+<script>
+const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+// Teklife göre değişen kısımlar
+const OFFER = {
+  net25: {
+    pct: '%25', label: 'ERKEN ERİŞİM FİYATI',
+    corner: `<span class="live"><span class="dot"></span>ERİŞİM AÇIK · 27.11 00.00'A KADAR</span>
+             <span class="note">27.11'DEN SONRA İNDİRİM ORANI DÜŞÜYOR</span>`,
+  },
+  net15: {
+    pct: '%15', label: 'OLTÂ FRIDAY FİYATI',
+    corner: `<span class="last">SON GÜN 30 KASIM</span>`,
+  },
+};
+
+// Görsel düzeni görsel sayısına göre: 3 → büyük silver + sağda gold ve takılı görsel · 2 → iki eşit dikey parça · 1 → tek görsel tüm alan
+function media(imgs) {
+  const im = (u, st = '') => `<div class="img" style="${st}"><img src="${esc(u)}"></div>`;
+  if (imgs.length >= 3) return im(imgs[0], 'width:640px;height:600px;flex-shrink:0') +
+    `<div class="col">${im(imgs[1], 'height:288px')}${im(imgs[2], 'height:288px')}</div>`;
+  if (imgs.length === 2) return im(imgs[0], 'width:480px;height:600px') + im(imgs[1], 'width:480px;height:600px');
+  return `<div class="img" style="width:984px;height:600px;background:#fff"><img src="${esc(imgs[0])}" style="object-fit:contain"></div>`;
+}
+
+function ad(key, p, logo) {
+  const o = OFFER[key];
+  return `<div class="ad">
+  <div class="head">
+    <div class="row"><span class="brand"><img src="${logo}" alt="oltâ"><span>FRIDAY</span></span><div class="corner">${o.corner}</div></div>
+    <span class="big">NET ${o.pct} İNDİRİM</span>
+  </div>
+  <div class="media">${media(p.imgs)}</div>
+  <div class="foot">
+    <div class="left"><span class="name">${esc(p.name)}</span></div>
+    <div class="right"><span class="old">${esc(p.old)}</span><span class="lbl">${o.label}</span><span class="now">${esc(p.now)}</span></div>
+  </div>
+</div>`;
+}
+
+(async () => {
+  const { key, p, logo } = window.__CTX;
+  document.body.innerHTML = ad(key, p, logo);
+  await document.fonts.ready;
+  await Promise.all([...document.images].map(i => i.complete ? 0 : new Promise(r => { i.onload = i.onerror = r; })));
+  window.__BROKEN = [...document.images].filter(i => !i.naturalWidth).map(i => i.src.slice(0, 120));
+  window.__READY = true;
+})();
+</script>
+</body></html>

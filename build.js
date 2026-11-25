@@ -58,7 +58,7 @@ function feedXml(brand, title, rows) {
     <g:condition>${x(it.condition || 'new')}</g:condition>
     <g:availability>${x(it.availability)}</g:availability>
     <g:price>${it.price.toFixed(2)} TRY</g:price>
-    <g:sale_price>${it.sale.toFixed(2)} TRY</g:sale_price>
+    ${it.sale > 0 && it.sale < it.price ? `<g:sale_price>${it.sale.toFixed(2)} TRY</g:sale_price>` : ''}
     ${it.size ? `<g:size>${x(it.size)}</g:size>` : ''}
     ${it.product_type ? `<g:product_type>${x(it.product_type)}</g:product_type>` : ''}
     ${it.custom_label_0 ? `<g:custom_label_0>${x(it.custom_label_0)}</g:custom_label_0>` : ''}
@@ -139,13 +139,15 @@ async function buildBrand(slug, browser) {
     const skipped = { stok: 0, indirim: 0, gorsel: 0 };
     let ok = all.filter((it) => {
       if (it.availability !== 'in stock') { skipped.stok++; return false; }
-      if (!(it.sale > 0 && it.sale < it.price)) { skipped.indirim++; return false; }
+      // İndirim sitede kodla uygulanan markalarda (brand.requireDiscount === false) indirimli olma şartı aranmaz
+      if (brand.requireDiscount !== false && !(it.sale > 0 && it.sale < it.price)) { skipped.indirim++; return false; }
       if (!it.images.length) { skipped.gorsel++; return false; }
       return true;
     });
     if (LIMIT) ok = ok.slice(0, LIMIT);
     const imgs = new Array(ok.length);
-    await pool(ok, 16, async (it, k) => { imgs[k] = await workingImages(it.images, brand.maxImgs); });
+    // brand.images(it, ctx) varsa tasarıma girecek görselleri marka seçer (sıra önemli); yoksa ürünün görselleri sırasıyla
+    await pool(ok, 16, async (it, k) => { imgs[k] = await workingImages(brand.images ? brand.images(it, ctx) : it.images, brand.maxImgs); });
     const rows = [];
     for (const [k, it] of ok.entries()) {
       if (!imgs[k].length) { skipped.gorsel++; continue; }

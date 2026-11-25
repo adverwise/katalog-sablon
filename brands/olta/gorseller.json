@@ -1,0 +1,450 @@
+{
+ "_aciklama": [
+  "Ürün görselleri (16 Kasım–25 Kasım 2026 seçimi, Alp ile).",
+  "takili: charm handle → vücutta takılı lifestyle görseli. Charm tasarımı: [silver charm, gold kolye (aynı isimli kolyenin Gold varyant görseli), takılı görsel].",
+  "liste: diğer ürünlerde (yüzük, küpe, bileklik, zincir, charm'ı olmayan kolye) tasarıma giren görseller, sırayla: silver, gold, takılı. Gold görseli olmayan/tek renkli ürünlerde silver + takılı ya da tek görsel.",
+  "Listede olmayan yeni ürün: silver varyant görseli + gold varyant görseli (varsa)."
+ ],
+ "takili": {
+  "baby-fawnie-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_7169.jpg",
+  "baller-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_7289.jpg",
+  "banana-bread-keramic-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_1132_2.jpg",
+  "bananini-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_3319_2.heic",
+  "big-fish-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_4079_2.jpg",
+  "blue-orchid-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_7015.heic",
+  "bunny-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_6919.heic",
+  "camel-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_4079_2.jpg",
+  "carretta-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_0156.jpg",
+  "carrotta-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_6415.jpg",
+  "cowboy-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_1074.jpg",
+  "crab-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_3577.jpg",
+  "cxtv-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/cbe19b72-7c36-48f3-9228-ddc649b45bab_2.jpg",
+  "daisy-keramic-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_7189.jpg",
+  "dakhund-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_4079_2.jpg",
+  "dapper-flag-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080-2026-01-21T151659.220.webp",
+  "dickplant-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_6484.jpg",
+  "domates-17-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/ee16e990-1ec1-499d-9814-cbd915224bcf.jpg",
+  "double-star-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_6895.heic",
+  "essence-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_0173.jpg",
+  "flip-blop-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/DSCF2948.jpg",
+  "fortune-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_6415.jpg",
+  "horse-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_4166.jpg",
+  "hunt-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/14_80adf6b7-ac9d-4895-a527-95ba4101b3af.jpg",
+  "kornison-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/ee16e990-1ec1-499d-9814-cbd915224bcf_595508c0-81e9-4595-b7a5-ef5de28f142c.jpg",
+  "lauda-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_6476.jpg",
+  "lucky-orbs-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/A65CE24D-D182-4268-86C6-6A4FCFCC5047.jpg",
+  "motolta-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_7420.jpg",
+  "olta-3310-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_6864.heic",
+  "oltagotchi-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_8756.heic",
+  "oltodots-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_1907.jpg",
+  "oltove-2-0-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_9272.jpg",
+  "oltove-3-0-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_8756.heic",
+  "oltove-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_0489.jpg",
+  "rabbit-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_1734.jpg",
+  "rosemary-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_3266.jpg",
+  "sea-peace-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_8528.heic",
+  "shell-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_3290.jpg",
+  "spark-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_1045.jpg",
+  "spicyy-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_6153.heic",
+  "star-loli-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_7718.jpg",
+  "strawberry-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_7785.jpg",
+  "stuart-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_6977.heic",
+  "sweet-dice-bo-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_0624.jpg",
+  "teeth-28-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_9529.jpg",
+  "the-ugly-duckling-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_3266.jpg",
+  "uni-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_6947.heic",
+  "wooly-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_5831.jpg",
+  "yelpir-charm": "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_6484.jpg"
+ },
+ "liste": {
+  "arrow-yuzuk": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTA018.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTA003_3fa470f7-7984-429f-b4d4-2d6702d35d61.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_20_20cc6258-87e3-45e0-8a0f-20d252d72633.webp"
+  ],
+  "baby-fawnie-yuzuk": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTA-2_beyaz_1.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTA-2_sari_1.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_8202.heic"
+  ],
+  "blend-yuzuk": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_3_d50c94db-16e8-474b-8a01-b2616c5ee1ba.webp"
+  ],
+  "crest-yuzuk": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_22_a3dc9377-fe77-4164-be9a-ce2f8ee114fe.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_21_7702733f-94f1-4a43-a344-bbc477215eb4.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_23_e9e756a0-8c27-4ed2-b1d9-be301eaf0da1.webp"
+  ],
+  "dolblue-yuzuk": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/05.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/06.jpg"
+  ],
+  "dolpink-yuzuk": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/03kopya.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/04_kopya.jpg"
+  ],
+  "emptiness-yuzuk": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_10_2c199ead-bc56-4b7e-892b-a9a4db9fd15c.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_9_456cc554-87bd-4960-8376-2bba058d5427.webp"
+  ],
+  "gorge-yuzuk": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_17_8cf03b3a-4e74-4429-8067-68858693b542.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_16_5a9dfa2b-1682-40c5-bd3a-12d05117f2db.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_20_20cc6258-87e3-45e0-8a0f-20d252d72633.webp"
+  ],
+  "honor-yuzuk": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_1_ea297f61-a580-4f11-ade7-6047c9f43906.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_1c6837cf-4ccd-4214-b80f-bca62dda5107.webp"
+  ],
+  "la-flame-yuzuk": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTA22EKIM_2d_0006.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTA22EKIM_2d_0005.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_7349_798ee302-00c4-450e-ad29-d83a1ae1b15a.jpg"
+  ],
+  "made-in-turki̇ye-yuzuk": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/01.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/02.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_1731_1.jpg"
+  ],
+  "oltove-yuzuk": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_6_ebba73e8-13fa-404d-8de3-f8eaec4d88ee.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_9_9eb4d467-f7fd-435d-9d5f-32779536fac9.webp"
+  ],
+  "on-the-way": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTA_JEWELLERY_20_SUBAT_2d_0014.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTA_JEWELLERY_20_SUBAT_2d_0012.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_8468.heic"
+  ],
+  "roll-yuzuk": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_13_bd3237cb-631b-4572-b7df-25b1b3bb95d7.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_12_69285151-61ad-4281-9c2a-0717cb9a8dd2.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_15_a5d255a9-bf03-43de-8ea4-9cd00879c9f7.webp"
+  ],
+  "orchid-kupe": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTAJEWELLERY_2d_0002copykopya_cc07ae6b-9972-49e6-b43f-8aae68ff5195.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTAJEWELLERY_2d_0002copykopya.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_2121.heic"
+  ],
+  "ribbon-kupe": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_3_7ecb1802-7285-42d8-8028-38ead3a0fd14.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_7_7710c640-3024-47f5-8d26-45da955f85e8.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_5_c0d5c5f8-6a34-494f-994e-43c4a5f81124.webp"
+  ],
+  "skin-hoop-kupe-1": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_1_983dcae5-bd2b-4e4e-bd6e-c3fe127da4e8.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_2_9b301f9b-a13a-40f5-984e-9858ccac625b.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_28_c953307b-b989-495f-8899-2ff30fb2f5bb.webp"
+  ],
+  "arrow-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/resized-image_5.png",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/resized-image_3_1554b936-4a22-4c6a-864f-f151e310ffd2.png"
+  ],
+  "baklavaki-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_43_3e9605f8-2e82-4a5e-badf-c6796226c9ed.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_45_0f205dbe-fa22-4273-bb57-0b76ed44aa7a.webp"
+  ],
+  "bali-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_79_0cd17747-3de3-4cc6-bbaa-af2fd625bb67.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_80_e4e356f3-cb2d-473a-b1b2-6b68c1b4b684.webp"
+  ],
+  "barley-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTAJEWELLERY_2d_0004copy.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTAJEWELLERY_2d_0001copy.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_7941.heic"
+  ],
+  "bone-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_51_43c0b082-d951-4bfc-8b94-430abaa11546.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_52_d499b247-f491-413d-b8e8-5fe8d3522587.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_53_70c5409b-d48c-4c85-be7f-08fcd7cb93fc.webp"
+  ],
+  "button-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/07.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/08kopya.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_3365.heic"
+  ],
+  "cactus-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_26_132f80d7-8a20-4a52-bbcd-3684bf28cd5f.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_24_dd93bfdc-d59c-4fda-b6fc-e71f9675bd15.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_25_6c70cea5-4e8b-466f-8915-8b8a4cbc3eed.webp"
+  ],
+  "carnival-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTAJEWELLERY_GUMUSRENK_2-1kopya.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTA_JEWELLERY_GUMUS_RENK_2_kopya.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_2590_2.heic"
+  ],
+  "deep-blue-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/oltajewell_gumusrenk-2copy.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/oltajewell_gumusrenk-1copy.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/4B11A366-D277-42D2-8F6C-B96FE5586633.jpg"
+  ],
+  "deep-white-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/olta_jewell-_copy.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/oltajewellcopy.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/4B11A366-D277-42D2-8F6C-B96FE5586633.jpg"
+  ],
+  "dew-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTAJEWELLERY_2d_0005copy.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTAJEWELLERY_2d_0003copy.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_7994.heic"
+  ],
+  "figaro-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_72_a9cc2a71-290a-4c26-9de3-6aad6565186a.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_75_a90f552f-3bf3-4c86-8895-e0f1b90a2591.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_73_e837eaf1-9da0-4873-8eb3-a52fb81af99f.webp"
+  ],
+  "gemmy-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/23_kopya.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/17_kopya.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_6432.heic"
+  ],
+  "grain-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_97_51cad799-1e82-40b0-8fb5-53ef77d78e0d.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_98_0110ab5d-7936-4c46-8226-41d01f40acd5.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_99_b47f3756-8b95-4f16-ac68-45c77e4c7c68.webp"
+  ],
+  "grim-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_81_68a0484e-3f2b-40c2-8a70-62dc1a127bc6.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_82_1d4ec51e-aaf0-4cb8-9fea-8230f3b44e08.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_84_f3417f58-5e02-487d-9bf6-039b949287b4.webp"
+  ],
+  "gripper-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_38_6d1a6370-64dd-47cb-96fe-4034396a536e.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_33_15229079-ef20-46fb-98b4-572864a5e523.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_36_24913584-63b2-46ba-8093-631ad6f413dc.webp"
+  ],
+  "gurmet-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_1_94b4b972-352d-4d13-b53a-be9bc3f9bf9e.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/051_copy_9d1d59e9-0045-482e-a228-54823d48b3de.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_2_0c3b57fa-dd1c-4c9b-b05a-f2b9c5a6545c.webp"
+  ],
+  "hollow-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_66_7078c974-40a4-4634-9d19-55a6fb930066.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTA003_6cad054b-3e06-4c4b-8bc7-43b0e20e9f00.jpg"
+  ],
+  "hypno-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_30_c9f2e5f1-556a-4da2-9261-34c12250045f.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_29_3297bd4d-4c76-4b2a-9da9-91837aa0b2db.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_32_7786d932-9925-46f4-bd4d-9b41ad36e481.webp"
+  ],
+  "joint-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_76_fb0b8a42-3b57-44ac-8bb2-066601aea384.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_80_26d45c73-8b39-4d07-beb1-8b7b5c9d9c7c.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_77_5451d1ce-a328-4b90-befb-e7a2cbc74216.webp"
+  ],
+  "king-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_62_dedd6d3a-b7c4-4e7a-9f92-968ba95aa821.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_63_88e13569-1f1b-4127-98b0-d0c9bfb3edf9.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_61_6bb05088-6ff2-4776-b7fc-5710a57d40f6.webp"
+  ],
+  "kingo-bileklik-1": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTA27EKIM_2d_0004_22ee4bce-1286-4bd1-a83a-f98fb9b90d5e.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_7863.heic"
+  ],
+  "lake-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_12_d65fb025-5f2a-42ff-b9b9-34d219403369.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_14_66758502-1a25-4239-9118-dfe2151d6397.webp"
+  ],
+  "linky-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/oltajewell_gumusrenk_4-2copy.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/oltajewell_gumusrenk_4-1copy.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/B3FDF6A6-AF15-43DC-A01B-1B18B92B71D8.jpg"
+  ],
+  "love2-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_68_6926ac50-ddde-448c-9511-b63177fc0e44.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_69_5d3a7c66-9508-47fe-949d-871fc307df48.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_71_b641338a-ea30-4de3-a40f-8e85113d1f4c.webp"
+  ],
+  "gemmy-bileklik-kopya": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTA27EKIM_2d_0005.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_7346.jpg"
+  ],
+  "node-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_16_942f0e18-d4d3-44ed-9ae4-2f6a0196dc04.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_18_59f870a1-9e4c-4f31-80e4-495be100a403.webp"
+  ],
+  "kingo-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTA27EKIM_2d_0003.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_7349_e1c0b87e-a13a-4c57-888c-23da2a8df462.jpg"
+  ],
+  "return-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_47_8084dd71-6f2c-41d0-89ab-568966c6c60b.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_50_0ed87d80-83f8-42fb-be25-443d1b484e33.webp"
+  ],
+  "rolling-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTA004_copy_655482c3-a4f3-4f90-b251-6a1478adb7f4.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTA003_copy_afdc2255-7816-4d51-a2a3-119d6013fd68.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_58_a48c313d-2fd7-4f17-96f9-364f29faaf4f.webp"
+  ],
+  "rubik-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_3_93490d2b-7745-48e2-ac33-76d2701068a6.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_8903d0b4-f7d3-403d-82ee-91e451d575fd.webp"
+  ],
+  "sailor-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTA-3_beyaz.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTA-3_sari.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_23_66f4f690-f5fa-4493-a24d-76a1c346bd2a.webp"
+  ],
+  "sailor-x3-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_39_69a1c0ce-4235-4cc4-ae25-f31cd942a4ee.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_40_9f920062-4f7e-4a89-9e6d-6f65af746a16.webp"
+  ],
+  "salt-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_5_aa01d49e-d7d3-4159-9a73-8a492471df66.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_4_1cceffa3-1f07-44a5-b1c6-90a817b207ed.webp"
+  ],
+  "stellar-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_86_3998ed57-d750-40e4-816c-5b9fa161e9c3.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_87_647e573c-84de-4cf4-83d6-16c5d8ee37f5.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_88_3fd89af2-26c1-486c-b6a9-2377b0649a86.webp"
+  ],
+  "surfer-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTA002_copy_5d170611-7508-4214-a61b-56ab837fbd7f.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTA001_copy_e0a00583-7ace-4637-9924-da0da6096e54.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_61_764fbb68-e53c-4bed-890e-17c2b7c84edc.webp"
+  ],
+  "trigon-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_8_401bbc2f-d926-4acb-a622-b446c4c8922b.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_11_960f591b-2862-4a8f-98fb-06438622ec61.webp"
+  ],
+  "triple-star-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_92_84688db8-7bc9-4059-9777-54f59ac6a0f9.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_93_20dd3c8a-8552-4391-b9de-ac03504c1f14.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_94_74b11d47-d4bb-45a3-9f0b-d9d030ee60f8.webp"
+  ],
+  "viper-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTA_27_EKIM_2d_0002.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_7362.jpg"
+  ],
+  "vortex-bileklik": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTAJEWELLERY_2d_0006copy.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTAJEWELLERY_2d_0002copy_c159c0c0-6542-4584-bc12-d733b78a8bc0.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_7941.heic"
+  ],
+  "atac-zincir": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_7_39eaf9b3-53da-4323-b599-07e6dd3f2af2.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_10_d02e9d89-fcff-440a-8144-dd2a2a2d3573.webp"
+  ],
+  "bali-zincir": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_42_001b0e0a-7b7a-442a-8cab-1c77af7d7a3e.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_44_75502ecf-c730-4d8e-ae53-11c21f02f86e.webp"
+  ],
+  "barbed-i̇nci-kolye": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_9_3cd901a8-c597-477b-95cb-9aa9d12c71e7.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_1_051f5f3a-7a0c-4599-b35c-e4ae0081416e.webp"
+  ],
+  "barley-zincir": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/Gemini_Generated_Image_81vsbg81vsbg81vs.png",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTA_KUYUMCULUK_003-1.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_72_4f36669a-47aa-4daf-b526-a0bca47f985d.webp"
+  ],
+  "bract-zincir": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_24_8b3c47af-afcc-4901-ace1-ac05b9970349.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_21_f1c4470c-6aee-442a-a86a-dd88321b2135.webp"
+  ],
+  "carnival-zincir": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTAjewel_2d_0001kopya2.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/OLTA_jewel_2d_0001_kopya.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/WhatsApp_Image_2026-08-04_at_13.04.41_3.jpg"
+  ],
+  "figaro-zincir": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_53_b1f8cec6-ab9e-45c1-88fd-b41bd5e204bc.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_55_36d5b284-cfb2-435d-9903-7e3b5dad663a.webp"
+  ],
+  "forse-zincir": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_14_dc9c7dd9-7857-43ec-b967-b27736d63119.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_18_11a4407e-29e0-466d-a3ae-aa9f11c41f9b.webp"
+  ],
+  "foxtail-zincir": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_34_0e285595-0bad-47ae-a1de-a386527e7fc1.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_36_133d5ec2-bfdb-4bd0-bf2d-68de1f1b2be7.webp"
+  ],
+  "gripper-zincir": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_70_df211996-2aca-4bd9-bbd7-35fcacf17341.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_71_f2169cfe-10ed-476b-86bf-fd1146004b48.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_72_4f36669a-47aa-4daf-b526-a0bca47f985d.webp"
+  ],
+  "gurmet-zincir": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_2_65fc76fd-5201-4314-9223-148bc5e32350.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_6_5f19450c-9d00-42f0-8f7c-17ae9bcd2714.webp"
+  ],
+  "hypno-zincir": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_37_5bd146a6-f259-4962-b293-5b99c0cdfb67.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_40_dbf56c7c-a7f6-4e1e-8c44-3e405679da82.webp"
+  ],
+  "i̇talyan-zincir": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_11_3f1dd5f3-dc7d-4aff-9fba-dcd79b848c09.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_13_c24a2b9b-f9b0-45b7-a100-2b3d7bb72a6d.webp"
+  ],
+  "linea-zincir": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_77.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_78_3ee4e773-22a5-4016-9ec4-db96c56207d2.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_76_8c06eb9b-fe29-42a1-b432-dd9d46742f11.webp"
+  ],
+  "love2-zincir": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_56_05574da6-d506-4ff5-b610-d8bc38efe85c.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_57_68dc13ee-e193-4872-86d6-d6515b58d073.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_58_cfc622d6-af47-4871-850a-1446586c8f0a.webp"
+  ],
+  "rolling-zincir": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_45_c6286a51-e8e7-4e52-b59c-a19233cb87d8.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_47_6b616b45-ae74-4f6c-af8c-3fc73f2d76a8.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_48_ec09d8b5-e720-4b60-a8de-38e1028159aa.webp"
+  ],
+  "sailor-x3-zincir": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_64_8525973c-93cf-48c2-be1d-e78c8771580f.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_67_8480bdfd-7f6e-4de1-a510-593197d2bbc5.webp"
+  ],
+  "sailor-zincir": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_29_704e6313-51ed-4ae6-9fa1-7449cf7cad77.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_31_ec285768-b8fc-4431-9fb9-32684051517e.webp"
+  ],
+  "scissors-zincir": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_19_cc699ebb-ed1c-473c-9371-199d1c7f852a.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_21_f1c4470c-6aee-442a-a86a-dd88321b2135.webp"
+  ],
+  "standart-zincir": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_34_0e285595-0bad-47ae-a1de-a386527e7fc1.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_35_53bc6e1f-6f61-43d1-b762-78edcd32440d.webp"
+  ],
+  "stellar-zincir": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_59_0f60fc60-f796-4f6b-bb9a-f8b15c888889.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_60_2672bb2f-23a4-43ea-976e-a59344df8db1.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_63_ffb57027-0b19-4c1c-b0bd-71db27d72604.webp"
+  ],
+  "stone-zincir": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/oltajewell_gumusrenk_3_2-2copy_b343b1f9-0fcd-41e0-a92f-3559f9d9cb71.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/oltajewell_gumusrenk_3_2-1copy_13796d11-f806-4b74-9e1b-b9af97cea64c.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/9F7DC055-BAF8-4464-A059-57E73872CAFE.jpg"
+  ],
+  "surfer-zincir": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_50_680445fd-1052-4340-b6f3-f735684df70c.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_51_ae901427-640e-48d6-9518-dc2a540b9293.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_48_ec09d8b5-e720-4b60-a8de-38e1028159aa.webp"
+  ],
+  "hatcow-kolye": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/046-1_copy_1.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/047-01copy_1.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_7251.jpg"
+  ],
+  "mir-kolye": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_26_8854b746-2c30-48e2-bee4-972802cd7e09.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_27_5a96c23a-9ec7-4a4b-96dd-0a778f54300f.webp"
+  ],
+  "olto-kolye": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/036-01_copy.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/035-01_copy.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/IMG_6415_ccdc74fc-40b6-4666-945b-a4e00ea988f0.jpg"
+  ],
+  "sailolta-kolye": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/01-copy.jpg",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/01copy_d6def3a9-fddf-40fb-a318-231773fdc6fc.jpg"
+  ],
+  "seed-kolye": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_89_fbf92ab9-f897-49dc-b579-f7227787826e.webp",
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/image_1080_91_387f5b3e-fe55-4cf1-8b6f-c508994d5003.webp"
+  ],
+  "trippy-kolye": [
+   "https://cdn.shopify.com/s/files/1/0705/3361/1589/files/010-01_copy.jpg"
+  ]
+ }
+}
