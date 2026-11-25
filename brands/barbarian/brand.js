@@ -18,6 +18,9 @@ function side(it) {
   return null;
 }
 const isSetPiece = (it) => model(it) && side(it);
+// %60 indirimli elbiseler (25 Kasım): koleksiyon üyeliği Shopify'dan saatlik okunur
+const DRESS_COLLECTION = 'yuzde-60-indirim';
+const isSaleDress = (it) => (it.collections || []).includes(DRESS_COLLECTION);
 
 const bestsellers = JSON.parse(fs.readFileSync(path.join(__dirname, 'bestsellers.json'), 'utf8')).products;
 const BEST_IDS = new Set(bestsellers.map((b) => b.product_id));
@@ -65,7 +68,7 @@ module.exports = {
   description: 'Barbarian Woman Black Friday 2026 takım katalogları',
   gender: 'female', ageGroup: 'adult', // TikTok feed'inde gender / age_group
   googleCategory: 'Apparel & Accessories > Clothing > Activewear', // TikTok feed'inde google_product_category
-  source: { type: 'shopify', site: 'https://barbarianwoman.com' },
+  source: { type: 'shopify', site: 'https://barbarianwoman.com', collections: [DRESS_COLLECTION] },
   maxImgs: 3,
   template: path.join(__dirname, 'template.html'),
   logo: path.join(__dirname, 'assets', 'logo.png'),
@@ -75,8 +78,10 @@ module.exports = {
     { key: 'a2-takimlar', template: 'A2', title: 'A2 Now Live · Tüm takımlar', select: isSetPiece },
     { key: 'b1-bestseller', template: 'B1', title: 'B1 Tiger · Bestseller', select: (it) => isSetPiece(it) && BEST_IDS.has(it.product_id) },
     { key: 'b2-bestseller', template: 'B2', title: 'B2 Now Live · Bestseller', select: (it) => isSetPiece(it) && BEST_IDS.has(it.product_id) },
+    { key: 'e1-elbise-60', template: 'A1', title: 'E1 Tiger · %60 Elbiseler', select: isSaleDress },
     // TikTok dikey 9:16 (1080×1920): a1-takimlar.tiktok.csv ve b1-bestseller.tiktok.csv bu görsellerle yazılır (23 Kasım'da onaylandı).
     { key: 'tt-a1-takimlar', template: 'A1V', height: 1920, tiktok: true, tiktokCsv: 'a1-takimlar', title: 'TikTok 9:16 · A1 Tiger · Tüm takımlar', select: isSetPiece },
+    { key: 'tt-e1-elbise-60', template: 'A1V', height: 1920, tiktok: true, tiktokCsv: 'e1-elbise-60', title: 'TikTok 9:16 · E1 Tiger · %60 Elbiseler', select: isSaleDress },
     { key: 'tt-b1-bestseller', template: 'B1V', height: 1920, tiktok: true, tiktokCsv: 'b1-bestseller', title: 'TikTok 9:16 · B1 Tiger · Bestseller', select: (it) => isSetPiece(it) && BEST_IDS.has(it.product_id) },
   ],
   toProduct,
