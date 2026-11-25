@@ -18,9 +18,10 @@ function side(it) {
   return null;
 }
 const isSetPiece = (it) => model(it) && side(it);
-// %60 indirimli elbiseler (25 Kasım): koleksiyon üyeliği Shopify'dan saatlik okunur
-const DRESS_COLLECTION = 'yuzde-60-indirim';
-const isSaleDress = (it) => (it.collections || []).includes(DRESS_COLLECTION);
+// %60 indirimli elbiseler (25 Kasım): yalnız fw-dresses koleksiyonundaki ve %60 (ve üstü) indirimli elbiseler.
+// yuzde-60-indirim koleksiyonuna sonradan eklenen ürünler bilerek alınmaz (Alp'in kuralı).
+const DRESS_COLLECTION = 'fw-dresses';
+const isSaleDress = (it) => (it.collections || []).includes(DRESS_COLLECTION) && it.price > 0 && it.sale / it.price <= 0.4001;
 
 const bestsellers = JSON.parse(fs.readFileSync(path.join(__dirname, 'bestsellers.json'), 'utf8')).products;
 const BEST_IDS = new Set(bestsellers.map((b) => b.product_id));
