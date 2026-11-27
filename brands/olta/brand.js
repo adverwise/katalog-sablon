@@ -129,6 +129,8 @@ module.exports = {
   description: 'oltâ · OLTÂ FRIDAY 2026 katalogları',
   source: { type: 'shopify', site: 'https://oltajewelry.com' },
   maxImgs: 3,
+  googleCategory: 'Apparel & Accessories > Jewelry', // TikTok feed'inde google_product_category (yoksa TikTok uyarı veriyor)
+  gender: 'unisex', ageGroup: 'adult',
   template: path.join(__dirname, 'template.html'),
   logo: path.join(__dirname, 'assets', 'logo.png'),
   prepare,
