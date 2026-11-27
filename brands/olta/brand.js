@@ -136,6 +136,9 @@ module.exports = {
   feeds: [
     { key: 'net25', template: 'net25', title: 'NET %25 · Charm, kolye, yüzük, küpe', select: select('net25') },
     { key: 'net15', template: 'net15', title: 'NET %15 · Bileklik, zincir', select: select('net15') },
+    // TikTok dikey 9:16 (1080×1920): net25.tiktok.csv ve net15.tiktok.csv bu görsellerle yazılır (Barbarian'daki yapı).
+    { key: 'tt-net25', template: 'net25V', height: 1920, tiktok: true, tiktokCsv: 'net25', title: 'TikTok 9:16 · NET %25', select: select('net25') },
+    { key: 'tt-net15', template: 'net15V', height: 1920, tiktok: true, tiktokCsv: 'net15', title: 'TikTok 9:16 · NET %15', select: select('net15') },
   ],
   toProduct,
   _internals: { baseName, tl, groupOf: (it) => groupOf(it) },

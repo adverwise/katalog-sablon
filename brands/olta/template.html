@@ -29,6 +29,20 @@ html,body{margin:0;padding:0;width:1080px;height:1080px;overflow:hidden;backgrou
 .old{font-size:24px;color:#999;text-decoration:line-through}
 .lbl{font-weight:700;font-size:15px;letter-spacing:4px;color:#666}
 .now{font-weight:700;font-size:58px;line-height:1;letter-spacing:-1px;white-space:nowrap}
+/* ================= TikTok dikey · 1080×1920 (net25V / net15V) =================
+   Güvenli alan (Barbarian'daki gibi): üstte ~140px TikTok üst menüsü, sağda x>880 & y>880 butonlar, altta y>1380 açıklama + CTA.
+   Başlık y<880 olduğu için tam genişlik; görseller ve isim/fiyat x≤880, y≤1360 içinde. Altta siyah bant (TikTok metni üstüne gelir). */
+html.v,html.v body,.ad.v{height:1920px}
+.ad.v .head{height:400px;padding-top:150px}
+.ad.v .media{width:832px;height:710px;margin:24px 0 0 48px;flex-grow:0}
+.ad.v .vfoot{height:206px;margin:20px 0 0 48px;width:832px;display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.ad.v .vfoot .logo{height:40px;width:auto;display:block}
+.ad.v .vfoot .name{font-size:36px;line-height:1.15;letter-spacing:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:832px}
+.ad.v .vfoot .lbl{margin-top:8px}
+.ad.v .vpr{display:flex;align-items:baseline;gap:20px;white-space:nowrap}
+.ad.v .vpr .now{font-size:76px}
+.ad.v .vpr .old{font-size:30px}
+.ad.v .vbot{flex-grow:1;background:#000;margin-top:38px}
 </style></head>
 <body>
 <script>
@@ -41,15 +55,38 @@ const OFFER = {
 };
 
 // Görsel düzeni görsel sayısına göre: 3 → solda silver (520px), sağda küçük gold ve büyük takılı görsel · 2 → iki eşit dikey parça · 1 → tek görsel tüm alan
-function media(imgs) {
+// Kare: alan 984×600. Dikey (TikTok): alan 832×710, aynı düzen kuralları.
+function media(imgs, v = false) {
+  const W = v ? 832 : 984, H = v ? 710 : 600, L = v ? 440 : 520, G = 24;
+  const small = v ? 220 : 184, big = H - small - G;
+  const half = (W - G) / 2;
   const im = (u, st = '') => `<div class="img" style="${st}"><img crossorigin="anonymous" src="${esc(u)}"></div>`;
-  if (imgs.length >= 3) return im(imgs[0], 'width:520px;height:600px;flex-shrink:0') +
-    `<div class="col">${im(imgs[1], 'height:184px')}${im(imgs[2], 'height:392px')}</div>`;
-  if (imgs.length === 2) return im(imgs[0], 'width:480px;height:600px') + im(imgs[1], 'width:480px;height:600px');
-  return `<div class="img" style="width:984px;height:600px;background:#fff"><img crossorigin="anonymous" src="${esc(imgs[0])}" style="object-fit:contain"></div>`;
+  if (imgs.length >= 3) return im(imgs[0], `width:${L}px;height:${H}px;flex-shrink:0`) +
+    `<div class="col">${im(imgs[1], `height:${small}px`)}${im(imgs[2], `height:${big}px`)}</div>`;
+  if (imgs.length === 2) return im(imgs[0], `width:${half}px;height:${H}px`) + im(imgs[1], `width:${half}px;height:${H}px`);
+  return `<div class="img" style="width:${W}px;height:${H}px;background:#fff"><img crossorigin="anonymous" src="${esc(imgs[0])}" style="object-fit:contain"></div>`;
+}
+
+function adV(key, p, logo) {
+  const o = OFFER[key];
+  return `<div class="ad v">
+  <div class="head">
+    <div class="row"><span class="bf">BLACK FRIDAY</span><span class="end">${o.end}</span></div>
+    <span class="big">NET ${o.pct} İNDİRİM</span>
+    <span class="cats">${o.cats}</span>
+  </div>
+  <div class="media">${media(p.imgs, true)}</div>
+  <div class="vfoot">
+    <img class="logo" src="${logo}" alt="oltâ"><span class="name">${esc(p.name)}</span>
+    <span class="lbl">${o.label}</span>
+    <div class="vpr"><span class="now">${esc(p.now)}</span><span class="old">${esc(p.old)}</span></div>
+  </div>
+  <div class="vbot"></div>
+</div>`;
 }
 
 function ad(key, p, logo) {
+  if (/V$/.test(key)) return adV(key.replace(/V$/, ''), p, logo);
   const o = OFFER[key];
   return `<div class="ad">
   <div class="head">
@@ -92,6 +129,7 @@ function fitStudio() {
 
 (async () => {
   const { key, p, logo } = window.__CTX;
+  if (/V$/.test(key)) document.documentElement.classList.add('v');
   document.body.innerHTML = ad(key, p, logo);
   await document.fonts.ready;
   // Başlığı içerik genişliğine (984px) tam oturt
