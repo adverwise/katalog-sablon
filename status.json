@@ -1,0 +1,81 @@
+{
+ "updated": "2026-11-28T16:12:44.484Z",
+ "brands": {
+  "barbarian": {
+   "brand": "Barbarian Woman",
+   "updated": "2026-11-28T16:12:42.849Z",
+   "template": "80a89dd2",
+   "seconds": 4,
+   "feeds": {
+    "a1-takimlar": {
+     "url": "https://adverwise.github.io/katalog-sablon/barbarian/feeds/a1-takimlar.xml",
+     "items": 312,
+     "failed": 0
+    },
+    "a2-takimlar": {
+     "url": "https://adverwise.github.io/katalog-sablon/barbarian/feeds/a2-takimlar.xml",
+     "items": 312,
+     "failed": 0
+    },
+    "b1-bestseller": {
+     "url": "https://adverwise.github.io/katalog-sablon/barbarian/feeds/b1-bestseller.xml",
+     "items": 37,
+     "failed": 0
+    },
+    "b2-bestseller": {
+     "url": "https://adverwise.github.io/katalog-sablon/barbarian/feeds/b2-bestseller.xml",
+     "items": 37,
+     "failed": 0
+    },
+    "e1-elbise-60": {
+     "url": "https://adverwise.github.io/katalog-sablon/barbarian/feeds/e1-elbise-60.xml",
+     "items": 50,
+     "failed": 0
+    },
+    "tt-a1-takimlar": {
+     "url": "https://adverwise.github.io/katalog-sablon/barbarian/feeds/tt-a1-takimlar.xml",
+     "items": 312,
+     "failed": 0
+    },
+    "tt-e1-elbise-60": {
+     "url": "https://adverwise.github.io/katalog-sablon/barbarian/feeds/tt-e1-elbise-60.xml",
+     "items": 50,
+     "failed": 0
+    },
+    "tt-b1-bestseller": {
+     "url": "https://adverwise.github.io/katalog-sablon/barbarian/feeds/tt-b1-bestseller.xml",
+     "items": 37,
+     "failed": 0
+    }
+   }
+  },
+  "olta": {
+   "brand": "oltâ",
+   "updated": "2026-11-28T16:12:44.463Z",
+   "template": "55671407",
+   "seconds": 2,
+   "feeds": {
+    "net25": {
+     "url": "https://adverwise.github.io/katalog-sablon/olta/feeds/net25.xml",
+     "items": 107,
+     "failed": 0
+    },
+    "net15": {
+     "url": "https://adverwise.github.io/katalog-sablon/olta/feeds/net15.xml",
+     "items": 66,
+     "failed": 0
+    },
+    "tt-net25": {
+     "url": "https://adverwise.github.io/katalog-sablon/olta/feeds/tt-net25.xml",
+     "items": 107,
+     "failed": 0
+    },
+    "tt-net15": {
+     "url": "https://adverwise.github.io/katalog-sablon/olta/feeds/tt-net15.xml",
+     "items": 66,
+     "failed": 0
+    }
+   }
+  }
+ }
+}

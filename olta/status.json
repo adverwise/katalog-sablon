@@ -1,0 +1,28 @@
+{
+ "brand": "oltâ",
+ "updated": "2026-11-28T16:12:44.463Z",
+ "template": "55671407",
+ "seconds": 2,
+ "feeds": {
+  "net25": {
+   "url": "https://adverwise.github.io/katalog-sablon/olta/feeds/net25.xml",
+   "items": 107,
+   "failed": 0
+  },
+  "net15": {
+   "url": "https://adverwise.github.io/katalog-sablon/olta/feeds/net15.xml",
+   "items": 66,
+   "failed": 0
+  },
+  "tt-net25": {
+   "url": "https://adverwise.github.io/katalog-sablon/olta/feeds/tt-net25.xml",
+   "items": 107,
+   "failed": 0
+  },
+  "tt-net15": {
+   "url": "https://adverwise.github.io/katalog-sablon/olta/feeds/tt-net15.xml",
+   "items": 66,
+   "failed": 0
+  }
+ }
+}
